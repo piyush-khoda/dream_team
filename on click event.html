@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on click event</title>
+</head>
+<body>
+    <div class="container">
+        <h1 align = "center" id = "text" >on click event</h1>
+
+    </div>
+    <div class="container1" align = "center">
+        <form>
+
+        
+    <input type="checkbox" class ="dhoni1" vlaue = "abc"  id="dhoni" onclick ="check()" >dhoni
+    <input type="checkbox"  vlaue = "15" id="rohit" onclick ="check(10)" >rohit
+    <input type="checkbox"  vlaue = "20" id="virat" onclick ="check(15)" >virat
+    <input type="checkbox"  vlaue = "25" id="shami" onclick ="check(20)" >shami<br>
+    <p id ="msg1" style ="display:none;">dhoni is selected</p>
+    <p id ="msg2" style ="display:none;">rohit is selected</p>
+    <p id ="msg3" style ="display:none;">virat is selected</p>
+    <p id ="msg4" style ="display:none;">shami is selected</p>
+    <h3 id = "sp">
+    </h3>
+    <spam id = "sp2">
+    </spam>
+    
+    </form>
+    <button id = "button1"> show result</button>
+    </div>
+    <script>
+        
+        
+        function check()
+        {
+            let a = 0;
+            
+            let dhoni = document.getElementById("dhoni");
+            let rohit = document.getElementById("rohit");
+            let virat = document.getElementById("virat");
+            let shami = document.getElementById("shami");
+            let sp = document.getElementById("sp");
+            let sp2 = document.getElementById("sp2");
+            
+            
+        if (dhoni.checked == true)
+            {
+               document.getElementById("sp").innerHTML = "dhoni"
+               a = a + 10;
+               console.log(a);
+               document.getElementById("sp2").innerHTML = a
+            
+            }
+            if (rohit.checked == true)
+            {
+               document.getElementById("sp").innerHTML = "rohit"
+               a = a + 9;
+               console.log(a);
+               document.getElementById("sp2").innerHTML = a
+            
+            }
+            if (virat.checked == true)
+            {
+               document.getElementById("sp").innerHTML = "virat"
+               a = a + 10.5;
+               console.log(a);
+               document.getElementById("sp2").innerHTML = a
+            
+            }
+            if (shami.checked == true)
+            {
+               document.getElementById("sp").innerHTML = "shami"
+               a = a + 9;
+               console.log(a);
+               document.getElementById("sp2").innerHTML = a
+            
+            }
+           
+        }
+        
+    </script>
+</body>
+</html>

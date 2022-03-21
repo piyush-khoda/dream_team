@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DT</title>
+    <style>
+        /* background effect in home page */
+        .background {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("background.png") center no-repeat;
+            height: 100vh;
+            background-size: cover;
+        }
+
+        /* manu dropdown list css */
+        .manudropdown1 {
+            padding-top: 20px;
+            width: 80%;
+            height: 100px;
+            margin: 0px auto;
+
+        }
+
+        .manudropdown1 ul {
+            padding: 0;
+        }
+
+        .manudropdown1 ul li {
+            float: left;
+            background-color: black;
+            color: white;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            text-align: center;
+            list-style: none;
+            opacity: 0.7;
+        }
+
+        .manudropdown1 ul li ul {
+            display: none;
+
+        }
+
+        .manudropdown1 ul li:hover>ul {
+            display: block;
+        }
+
+        .manudropdown1 ul li:hover {
+            background-color: tomato;
+            opacity: 0.9;
+        }
+
+        .manudropdown1 ul li ul li {
+            position: relative;
+
+        }
+
+        .manudropdown1 ul li ul li ul {
+            position: absolute;
+            left: 200px;
+            top: 0px;
+        }
+
+        .signUp {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* css for ipl point table */
+
+
+        .IPLPT {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            /* margin: 50px;
+            margin-top: -80px;
+            padding-left: 7%; */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            height: 100vh;
+            overflow: visible;
+            /* height: 500px;
+            overflow: auto; */
+            /* margin-top: 60px; */
+
+            display: none;
+            box-sizing: content-box;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0.1;
+
+        }
+
+        .IPLPT .close-btn {
+            position: absolute;
+            right: 120px;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            background: rgb(245, 4, 4);
+            color: #fff;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            pointer-events: painted;
+        }
+
+
+
+        .IPLPT thead th {
+            position: sticky;
+            top: 0;
+            background-color: black;
+            color: red;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-left: 8%;
+            margin-top: 2%;
+        }
+
+        th,
+        td {
+            border-bottom: 1px solid #dddddd;
+            padding: 10px 20px;
+            font-size: 25px;
+            color: white;
+        }
+
+        td img {
+            height: 40px;
+            width: 60px;
+            border-radius: 25%;
+            border: 2px solid #e6e7e8;
+        }
+
+        tr:nth-child(1) {
+
+            background-color: blue;
+        }
+
+        tr:nth-child(2) {
+
+            background-color: green;
+        }
+
+        tr:nth-child(3) {
+
+            background-color: red;
+        }
+
+        tr:nth-child(4) {
+
+            background-color: black;
+        }
+
+        tr:nth-child(5) {
+
+            background-color: rgb(21, 21, 83);
+        }
+
+        tr:nth-child(6) {
+
+            background-color: rgb(133, 31, 31);
+        }
+
+        tr:nth-child(7) {
+
+            background-color: rgb(216, 7, 164);
+        }
+
+        tr:nth-child(8) {
+
+            background-color: rgb(221, 99, 17);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+        }
+
+
+
+        .IPLPT.active {
+            display: block;
+        }
+
+        .IPLPT.active .IPLPT {
+            transition: all 300ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+
+        .BBLPT {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+
+            /* margin: 50px;
+            margin-top: -80px;
+            padding-left: 7%; */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            overflow: visible;
+            /* height: 500px;
+            overflow: auto; */
+            /* margin-top: 60px; */
+
+            display: none;
+            box-sizing: content-box;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0.1;
+
+        }
+
+        .BBLPT .close-btn {
+            position: absolute;
+            right: 120px;
+            top: 30px;
+            width: 30px;
+            height: 30px;
+            background: rgb(245, 4, 4);
+            color: #fff;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            pointer-events: painted;
+        }
+
+
+
+        .BBLPT thead th {
+            position: sticky;
+            top: 0;
+            background-color: black;
+            color: red;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .BBLPT.active {
+            display: block;
+        }
+
+        .BBLPT.active .BBLPT {
+            transition: all 300ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .ICCRK {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            padding: 10%;
+            /* margin: 50px;
+            margin-top: -80px;
+            padding-left: 7%; */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            overflow: visible;
+            /* height: 500px;
+            overflow: auto; */
+            /* margin-top: 60px; */
+
+            display: none;
+            box-sizing: content-box;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0.1;
+
+        }
+
+        .ICCRK .close-btn {
+            position: absolute;
+            right: 36%;
+            top: 18%;
+            width: 30px;
+            height: 30px;
+            background: rgb(245, 4, 4);
+            color: #fff;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            pointer-events: painted;
+        }
+
+
+
+        .ICCRK thead th {
+            position: sticky;
+            top: 0;
+            background-color: black;
+            color: red;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .ICCRK.active {
+            display: block;
+        }
+
+        .ICCRK.active .ICCRK {
+            transition: all 300ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* css design for popup registration */
+
+
+        /* .hiro.active {
+            display: block;
+
+        }
+
+        .hiro.active .hiro {
+            transition: all 300ms ease-in-out;
+            transform: translate(-50%, -50%) scale(1);
+        } */
+    </style>
+    <script>
+        function iplPointtable() {
+            document.getElementById("IPLPT").classList.toggle("active");
+        }
+        function bblPointtable() {
+            document.getElementById("BBLPT").classList.toggle("active");
+        }
+        function iccRenking() {
+            document.getElementById("ICCRK").classList.toggle("active");
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="background">
+
+
+        <div class="manudropdown1">
+            <ul>
+                <li> HOME
+
+                </li>
+                <li> MATCHES
+                    <ul>
+                        <li>NATIONAL</li>
+                        <li>INTERNATIONAL</li>
+                        <li>LEAGUE
+                            <ul>
+                                <li> IPL
+                                </li>
+                                <li> BBL </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li> POINTS TABLE
+                    <ul>
+                        <li onclick="iplPointtable()">
+                            IPL
+                        </li>
+                        <li onclick="bblPointtable()">
+                            BBL
+                        </li>
+                    </ul>
+                </li>
+                <li> INFORMATION
+                    <ul>
+                        <li>GROUND</li>
+                        <li>PLAYER</li>
+                        <li onclick="iccRenking()">
+                            ICC RENKING
+                        </li>
+                    </ul>
+                </li>
+                <li> <a href="login and registration.html" class="signUp">SIGN IN/SIGN UP</a>
+
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="IPLPT" id="IPLPT">
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>TEAM LOGO</th>
+                        <th> TEAMS </th>
+                        <th> PLAYED </th>
+                        <th> WINS </th>
+                        <th> LOSS </th>
+                        <th> NR </th>
+                        <th> POINTS </th>
+                    </tr>
+                </thead>
+                <div class="close-btn" onclick="iplPointtable()">&times;</div>
+                <tbody>
+                    <tr>
+                        <td><img src="dilhi.jpg"></td>
+                        <td> DILHI CAPITALS </td>
+                        <td> 14 </td>
+                        <td> 10 </td>
+                        <td> 4 </td>
+                        <td> +0.481 </td>
+                        <td> 20 </td>
+
+                    </tr>
+
+                    <tr>
+                        <td><img src="chennai.jpg"></td>
+                        <td> CHENNAI SUPER KINGS </td>
+                        <td> 14 </td>
+                        <td> 9 </td>
+                        <td> 5 </td>
+                        <td> +0.455 </td>
+                        <td> 18 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="banglore.jpg"></td>
+                        <td> ROYAL CHALLENGERS BANGALORE </td>
+                        <td> 14 </td>
+                        <td> 9 </td>
+                        <td> 5 </td>
+                        <td> +0.223 </td>
+                        <td> 18 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="kolkatta.jpg"></td>
+                        <td> KOLKATTA KNIGHT RIDERS </td>
+                        <td> 14 </td>
+                        <td> 7 </td>
+                        <td> 7 </td>
+                        <td> +0.016 </td>
+                        <td> 14 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="mumbai.jpg"></td>
+                        <td> MUMBAI INDIANS </td>
+                        <td> 14 </td>
+                        <td> 7 </td>
+                        <td> 7 </td>
+                        <td> -0.112 </td>
+                        <td> 14 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="panjab.jpg"></td>
+                        <td> PANJAB KINGS </td>
+                        <td> 14 </td>
+                        <td> 6 </td>
+                        <td> 8 </td>
+                        <td> -0.001 </td>
+                        <td> 12 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="rajsthan.jpg"></td>
+                        <td> RAJESTHAN ROYALS </td>
+                        <td> 14 </td>
+                        <td> 5 </td>
+                        <td> 9 </td>
+                        <td> -0.230 </td>
+                        <td> 10 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="haydrabad.jpg"></td>
+                        <td> SUNRISERS HYDERABAD </td>
+                        <td> 14 </td>
+                        <td> 3 </td>
+                        <td> 11 </td>
+                        <td> -0.400 </td>
+                        <td> 6 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="BBLPT" id="BBLPT">
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>TEAM LOGO</th>
+                        <th> TEAMS </th>
+                        <th> PLAYED </th>
+                        <th> WINS </th>
+                        <th> LOSS </th>
+                        <th> NR </th>
+                        <th> POINTS </th>
+                    </tr>
+                </thead>
+                <div class="close-btn" onclick="bblPointtable()">&times;</div>
+                <tbody>
+                    <tr>
+                        <td><img src="AS.jpg"></td>
+                        <td> ADELAIDE STRIKERS </td>
+                        <td> 14 </td>
+                        <td> 10 </td>
+                        <td> 4 </td>
+                        <td> +0.481 </td>
+                        <td> 20 </td>
+
+                    </tr>
+
+                    <tr>
+                        <td><img src="PS.jpg"></td>
+                        <td> PERTH SCORCHERS </td>
+                        <td> 14 </td>
+                        <td> 9 </td>
+                        <td> 5 </td>
+                        <td> +0.455 </td>
+                        <td> 18 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="MR.jpg"></td>
+                        <td> MELBOURNE RENEGADES </td>
+                        <td> 14 </td>
+                        <td> 9 </td>
+                        <td> 5 </td>
+                        <td> +0.223 </td>
+                        <td> 18 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="BH.jpg"></td>
+                        <td> BRISBANE HEAT </td>
+                        <td> 14 </td>
+                        <td> 7 </td>
+                        <td> 7 </td>
+                        <td> +0.016 </td>
+                        <td> 14 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="HH.jpg"></td>
+                        <td> HOBART HURRICANES </td>
+                        <td> 14 </td>
+                        <td> 7 </td>
+                        <td> 7 </td>
+                        <td> -0.112 </td>
+                        <td> 14 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="ST.jpg"></td>
+                        <td> SYDNEY THUNDER </td>
+                        <td> 14 </td>
+                        <td> 6 </td>
+                        <td> 8 </td>
+                        <td> -0.001 </td>
+                        <td> 12 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="MS.jpg"></td>
+                        <td> MELBOURNE STARS </td>
+                        <td> 14 </td>
+                        <td> 5 </td>
+                        <td> 9 </td>
+                        <td> -0.230 </td>
+                        <td> 10 </td>
+                    </tr>
+                    <tr>
+                        <td><img src="SS.jpg"></td>
+                        <td> SYDNEY SIXERS </td>
+                        <td> 14 </td>
+                        <td> 3 </td>
+                        <td> 11 </td>
+                        <td> -0.400 </td>
+                        <td> 6 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="ICCRK" id="ICCRK">
+            <h1 style="color: white; margin-left: 30%;"> ICC RENKING </h1>
+            <table>
+                <thead>
+                    <div class="close-btn" onclick="iccRenking()">&times;</div>
+                    <tr>
+                        <th> type </th>
+                        <th> test match </th>
+                        <th> odi match </th>
+                        <th> t20 match </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Batsman </td>
+                        <td> Joi Root </td>
+                        <td> Rohit Sharma </td>
+                        <td> Devid Malan </td>
+                    </tr>
+
+                    <tr>
+                        <td> Bowlers </td>
+                        <td> Ravichandran Ashvin </td>
+                        <td> Shahin afridi </td>
+                        <td> Moin ali </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

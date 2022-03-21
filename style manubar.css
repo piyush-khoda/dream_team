@@ -1,0 +1,94 @@
+*
+{
+    padding: 0;
+    margin : 0;
+    box-sizing: content-box;
+}
+
+body
+{   
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1)), url(di3.jpg) ; 
+    background-position: 0%;
+    background-position-y: -50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: center;
+    font-family:'Lucida Sans';
+    
+}
+
+.manu-bar
+{
+    position: absolute;
+    background-color: transparent;
+    text-align: left;
+    padding: 15px;
+}
+
+.manu-bar ul
+{
+    position:absolute;
+    display: inline-flex;
+    list-style: none;
+    color :aliceblue;
+    text-align:justify;
+}
+.manu-bar ul li
+{
+    width :120px;
+    margin: 2px;
+    padding: 15px;
+}
+
+.manu-bar ul li a
+{
+    text-decoration: none;
+    color: aliceblue;
+}
+.active, .manu-bar ul li:hover
+    {
+        background : #e20606;
+        border-radius: 3px;
+    }
+.manu-bar .fa
+{
+    margin-right: 8px;
+}
+.submanu1
+{
+    display :none;
+    
+}
+.manu-bar ul li:hover .submanu1
+{
+    display: block;
+    position: absolute;
+    background:#ff0000;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+.manu-bar ul li:hover .submanu1 ul
+{
+    display: block;
+    margin: 10px;
+}
+.manu-bar ul li:hover .submanu1 ul li
+{
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+.manu-bar ul li:hover .submanu1 ul li:last-child
+{
+    border-bottom: none;
+}
+.manu-bar ul li:hover .submanu1 ul li align-self :hover
+{
+    color: #ff0000;
+}
+.welcome{
+    margin-top: 70px;
+}

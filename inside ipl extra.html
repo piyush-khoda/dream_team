@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Inside ipl extra </title>
+  <style>
+    th {
+      color: rgb(11, 35, 247);
+    }
+
+    body {
+      background-color: rgba(162, 158, 172, 0.822);
+    }
+  </style>
+
+
+  </script>
+</head>
+
+<body>
+  
+  <h1 align="center">IPL inside</h1>
+
+  <select name="MI" id=""> 
+    <option value="MI"> MI </option>
+    <option value="MI"> Rohit sharma </option>
+    <option value="MI"> Kieron Pollard </option>
+    <option value="MI"> surykumar yadav </option>
+    <option value="MI"> saurabh tivari </option>
+    <option value="MI"> Quinton de Kock </option>
+    <option value="MI"> Ishan Kishan </option>
+    <option value="MI"> Krunal Pandya </option>
+    <option value="MI"> hardik pandya </option>
+    <option value="MI"> Chris Lynn </option>
+    <option value="MI"> jayant yadav </option>
+  </select>
+
+  <select name="CSK" id="">
+    <option value="MI"> CSK </option>
+    <option value="MI"> Mahendrsingh dhoni </option>
+    <option value="MI"> Ravindr jadeja </option>
+    <option value="MI"> Moin ali </option>
+    <option value="MI"> Dipak chahar </option>
+    <option value="MI"> Sardul thakur </option>
+    <option value="MI"> Faf duplesi </option>
+    <option value="MI"> Suresh raina </option>
+    <option value="MI"> Ruturaaj gaayakvad </option>
+    <option value="MI"> Ambati raaydu </option>
+    <option value="MI"> Bravo </option>
+  </select>
+
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div align="center">
+    <button id="btn" onclick="myfunction()"> csk vs mi</button>
+    <button id="btn2" onclick="myfunction2()"> hide </button>
+  </div>
+
+  <piy class="abc" id="showdisplay" style="display: none;" align = "center">
+    <div class="table">
+
+    
+
+  
+       <h3 style="margin-left: 20%;" id = "cradit" align = "Left" >Cradit =.. </h3>
+    <table border="3" >
+
+    
+    <td><input type="checkbox" class="player" name = "Wicket" value = "Quinton" id="Quinton" onclick = " extra()" >Quinton de Kock </td>
+    <td> <input type="checkbox" class="player" name = "Wicket" value = "Mahendrsingh" id="Mahendrsingh" onclick = "extra()">Mahendrsingh dhoni  </td></tr>
+    
+    <tr> <td><h3> select 3-6 Batters </h3></td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "Faf" id="Faf" onclick = "extra()">Faf duplesi</td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "Suresh" id="Suresh"onclick = "extra()">Suresh raina</td>
+      <td> <input type="checkbox" class="player" name = "Batters" value = "Ruturaaj" id="Ruturaaj" onclick = "extra()">Ruturaaj gaayakvad </td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "Ambati" id="Ambati" onclick = "extra()">Ambati raaydu</td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "Kieron" id="Kieron" onclick = "extra()">Kieron Pollard</td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "surykumar" id="surykumar" onclick = "extra()">surykumar yadav</td>
+      <td><input type="checkbox" class="player"name = "Batters" value = "saurabh" id="saurabh" onclick = "extra()">saurabh tivari</td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "Rohit" id="Rohit" onclick = "extra()">Rohit sharma </td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "Chris" id="Chris" onclick = "extra()">Chris Lynn</td>
+      <td><input type="checkbox" class="player" name = "Batters" value = "Ishan" id="Ishan" onclick = "extra()">Ishan Kishan </td></tr>
+   <tr><td> <h3> select 1-4 All rounders </h3></td>
+    <td><input type="checkbox" class="player" name = "All" value = "Krunal" id="Krunal" onclick = "extra()">Krunal Pandya </td>
+    <td><input type="checkbox" class="player " name = "All" value = "hardik" id="hardik" onclick = "extra()">hardik pandy</td>
+    <td><input type="checkbox" class="player" name = "All" value = "Ravindr" id="Ravindr" onclick = "extra()">Ravindr jadeja</td>
+    <td><input type="checkbox" class="player" name = "All" value = "Moin" id="Moin" onclick = "extra()">Moin ali</td>
+    <td><input type="checkbox" class="player" name = "All" value = "Bravo" id="Bravo" onclick = "extra()">Dwayne Bravo</td></tr>
+   <tr> <td><h3> select 3-6 Bowlers </h3></td>
+    <td> <input type="checkbox" class="player" name = "Bowlers" value = "Dipak" id="Dipak" onclick = "extra()">Dipak chahar</td>
+    <td> <input type="checkbox" class="player" name = "Bowlers" value = "Shardul" id="Shardul" onclick = "extra()">Shardul thakur</td> 
+    <td> <input type="checkbox" class="player" name = "Bowlers" value = "jayant" id="jayant" onclick = "extra()">jayant yadav </td></tr>
+
+      <tr> <td></td>
+        <td><h3 id = "Wkt" style="color: red;"  > wicket =  </h3></td>
+      <td><h3 id = "Bats"  style="color: red;" > Batters =  </h3></td>
+      <td><h3 id = "Als"  style="color: red;"> All =  </h3></td>
+      <td><h3 id = "Bowl" style="color: red;" > Bowlers =  </h3></td> </tr>
+    
+    
+    
+
+    
+    <h3 id = "message" align = "center" > </h3>
+    <hr>
+    <div id = "message1"  style="color: red;"  align = "center">
+    <span ></span>
+    </div>
+    
+
+  </table>
+  </div>
+  </piy>
+  <script>
+
+    
+    function myfunction() {
+      document.getElementById("showdisplay").style.display = "inline"
+    }
+    function myfunction2() {
+      document.getElementById("showdisplay").style.display = "none"
+    }
+    
+    function extra1()
+    {
+      var check1 = document.getElementsByClassName('player');
+
+      
+      var str = '';
+      var str1 = "your team is ready";
+      var  j = 0;
+      var l = 0;
+      var m = 0;
+      
+     
+      
+      
+      
+          
+      
+      for (i = 0 ; i < check1.length ; i++)
+      {
+           
+        if (check1[i].checked === true)
+        {
+          
+          str += check1[i].value + '.....'; 
+          document.getElementById("message").textContent = str;
+          j = j + 1 ;
+          
+
+        if(j == 11)
+        {
+            
+             document.getElementById("message").textContent = str1 ;
+        }
+        if(j >= 12)
+        {
+        
+          document.getElementById("message").textContent = null;
+          document.getElementById("message1").innerHTML = "please select only 11";
+          return false;
+        }
+        
+        }
+        
+        
+      }
+      
+    }
+    function extra2()
+    {
+      var Wk = document.getElementsByName("Wicket");
+
+      let l = 0;
+    
+      for (p=0 ; p < Wk.length ; p++)
+      {
+        if(Wk[p].checked === true)
+        {
+          l = l+1;
+          document.getElementById("Wkt").innerText = "Wkt " + l;
+        }
+
+      }
+    }
+    function extra3()
+    {
+      var Bat = document.getElementsByName("Batters");
+
+      let m = 0;
+    
+      for (p=0 ; p < Bat.length ; p++)
+      {
+        if(Bat[p].checked === true)
+        {
+          m = m+1;
+          document.getElementById("Bats").textContent = "Bat " + m;
+        }
+
+      }
+    }
+    function extra4()
+    {
+      var Al = document.getElementsByName("All");
+      let n = 0;
+    
+      for (p=0 ; p < Al.length ; p++)
+      {
+        if(Al[p].checked === true)
+        {
+          n = n+1;
+          document.getElementById("Als").textContent = "All " + n;
+        }
+
+      }
+    }
+    function extra5()
+    {
+      var Bow = document.getElementsByName("Bowlers");
+      let o = 0;
+    
+      for (p=0 ; p < Bow.length ; p++)
+      {
+        if(Bow[p].checked === true)
+        {
+          o = o+1;
+          document.getElementById("Bowl").textContent = "Bow " + o;
+        }
+
+      }
+    }
+    function extra6()
+    {
+      var Quinton = document.getElementById("Quinton");
+      
+      var Mahendrsingh = document.getElementById("Mahendrsingh");
+      
+      var Faf = document.getElementById("Faf");
+      
+      var Suresh = document.getElementById("Suresh");
+      
+      var Ruturaaj = document.getElementById("Ruturaaj");
+      
+      var Ambati = document.getElementById("Ambati");
+      
+      var Kieron = document.getElementById("Kieron");
+      
+      var surykumar = document.getElementById("surykumar");
+      
+      var saurabh = document.getElementById("saurabh");
+
+      var Rohit = document.getElementById("Rohit");
+      
+      var Chris = document.getElementById("Chris");
+      
+      var Ishan = document.getElementById("Ishan");
+      
+      var Krunal = document.getElementById("Krunal");
+
+      var hardik = document.getElementById("hardik");
+      
+      var Ravindr = document.getElementById("Ravindr");
+      
+      var Moin = document.getElementById("Moin");
+      
+
+      var Bravo = document.getElementById("Bravo");
+      
+      var Dipak = document.getElementById("Dipak");
+      
+      var Shardul = document.getElementById("Shardul");
+      
+      var jayant = document.getElementById("jayant");
+      
+      let x = 0;
+      
+
+      if (Quinton.checked == true)
+      {
+        Quinton = 11;
+        x = x + Quinton;
+        console.log(x)
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      
+      if (Mahendrsingh.checked == true)
+      {
+        Mahendrsingh = 8.5;
+        x = x + Mahendrsingh;
+        console.log(x)
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Faf.checked == true)
+      {
+        Faf = 9;
+        x = x + Faf;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Suresh.checked == true)
+      {
+        Suresh = 9;
+        x = x + Suresh;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Ruturaaj.checked == true)
+      {
+        Ruturaaj = 8.5;
+        x = x + Ruturaaj;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Ambati.checked == true)
+      {
+        Ambati = 8.5;
+        x = x + Ambati;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Kieron.checked == true)
+      {
+        Kieron = 9;
+        x = x + Kieron;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (surykumar.checked == true)
+      {
+        surykumar = 8.5;
+        x = x + surykumar;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (saurabh.checked == true)
+      {
+        saurabh = 8;
+        x = x + saurabh;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Rohit.checked == true)
+      {
+        Rohit = 11.5;
+        x = x + Rohit;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Chris.checked == true)
+      {
+        Chris = 8.5;
+        x = x + Chris;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Ishan.checked == true)
+      {
+        Ishan = 8.5;
+        x = x + Ishan;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Krunal.checked == true)
+      {
+        Krunal = 8;
+        x = x + Krunal;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (hardik.checked == true)
+      {
+        hardik = 8.5;
+        x = x + hardik;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Ravindr.checked == true)
+      {
+        Ravindr = 10;
+        x = x + Ravindr;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Moin.checked == true)
+      {
+        Moin = 8.5;
+        x = x + Moin;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Bravo.checked == true)
+      {
+        Bravo = 8;
+        x = x + Bravo;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Dipak.checked == true)
+      {
+        Dipak = 8.5;
+        x = x + Dipak;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (Shardul.checked == true)
+      {
+        Shardul = 10;
+        x = x + Shardul;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+      if (jayant.checked == true)
+      {
+        jayant = 8;
+        x = x + jayant;
+        console.log(x);
+        document.getElementById("cradit").textContent = "Cradit =.. " + x;
+      }
+    }
+
+    function finalcheck()
+    {
+      var check1 = document.getElementsByClassName('player');
+      let j = 0;
+      var Wk = document.getElementsByName("Wicket");
+      let l = 0;
+      var Bat = document.getElementsByName("Batters");
+      let m = 0;
+      var Al = document.getElementsByName("All");
+      let n = 0;
+      var Bow = document.getElementsByName("Bowlers");
+      let o = 0;
+      
+      
+
+      for (i = 0 ; i < check1.length ; i++)
+      {
+           
+        if (check1[i].checked === true)
+        {
+          j = j + 1 ;
+          
+        }
+      }
+        if(j == 11)
+        {
+          
+      for (p=0 ; p < Wk.length ; p++)
+      {
+        if(Wk[p].checked === true)
+        {
+          l = l+1;
+          
+          
+        }
+      }
+        
+      for (p=0 ; p < Bat.length ; p++)
+      {
+        if(Bat[p].checked === true)
+        {
+          m = m+1;
+          
+          
+        }
+        
+      }
+      for (p=0 ; p < Al.length ; p++)
+      {
+        if(Al[p].checked === true)
+        {
+          n = n+1;
+          console.log(n)
+          
+        }
+        
+      }
+      for (p=0 ; p < Bow.length ; p++)
+      {
+        if(Bow[p].checked === true)
+        {
+          o = o+1;
+          console.log(o)
+          
+        }
+        
+      }
+          console.log(l)
+          if (l == 0)
+          {
+            document.getElementById("Wkt").textContent = "------"
+            document.getElementById("message").textContent = "your team is not proper"
+          }
+          console.log(m)
+          if (m <= 2)
+          {
+            document.getElementById("Bats").textContent = "------"
+            var msg = document.getElementById("message").textContent = "your team is not proper"
+          }
+          console.log(n)
+          if (n == 0)
+          {
+            document.getElementById("Als").textContent = "------"
+            document.getElementById("message").textContent = "your team is not proper"
+          }
+          console.log(o)
+          if (o <= 2)
+          {
+            document.getElementById("Bowl").textContent = "------"
+            document.getElementById("message").textContent = "your team is not proper"
+          }
+    }
+          
+          
+    }
+
+
+    function extra()
+      {
+        extra1()
+        extra2()
+        extra3()
+        extra4()
+        extra5()
+        extra6()
+        finalcheck()
+      }  
+      
+    
+        
+
+
+  </script>
+</body>
+
+</html>

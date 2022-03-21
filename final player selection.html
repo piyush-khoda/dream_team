@@ -1,0 +1,4595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final player selection</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background: linear-gradient(120deg, #859152, #475b79, #7a4673);
+            height: 100vh;
+            /* overflow: hidden; */
+        }
+
+        .selection ul {
+            margin-top: 10%;
+            display: inline-table;
+            list-style: none;
+            margin: 40px;
+            color: rgb(251, 255, 8);
+            text-align: right;
+            padding: 20px;
+            width: 200px;
+        }
+
+        .selection ul li {
+            width: 150px;
+            padding: 5px;
+        }
+
+        input[type="button"] {
+            width: 180%;
+            height: 30px;
+            border: 2px solid;
+            background: red;
+            border-radius: 25px;
+            color: white;
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+            outline: none;
+
+        }
+
+
+
+        #team-detail1 {
+            margin-top: 1%;
+            background-color: blue;
+            border: rgb(20, 20, 39);
+            width: 120px;
+            padding: 9px;
+            margin-right: 10%;
+            border-radius: 20px;
+            color: white;
+
+        }
+
+        .player {
+            display: none;
+        }
+
+        #team-detail2 {
+
+            background-color: blue;
+            border: rgb(20, 20, 39);
+            width: 120px;
+            padding: 9px;
+            margin-left: 20%;
+            margin-top: -35px;
+            border-radius: 20px;
+            color: white;
+            text-align: justify;
+            display: none;
+        }
+
+        #cradit1 {
+            margin-top: 5px;
+            background-color: yellow;
+            border: rgb(20, 20, 39);
+            width: 120px;
+            padding: 9px;
+            border-radius: 20px;
+            color: red;
+
+        }
+
+        #sel {
+            margin-top: -50px;
+            background-color: yellow;
+            border: rgb(20, 20, 39);
+            width: 250px;
+            padding: 9px;
+            border-radius: 20px;
+            color: red;
+
+        }
+
+        #cmt {
+            margin-top: -50px;
+            background-color: yellow;
+            border: rgb(20, 20, 39);
+            width: 250px;
+            padding: 9px;
+            border-radius: 20px;
+            color: red;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="selection">
+        <p align="center">
+            <select id="team-detail1" onchange="team1()">
+                <option> select team 1 </option>
+                <option id="mi" class="mi11" value="MI"> MI </option>
+                <option id="csk" class="csk11" value="CSK"> CSK </option>
+                <option id="pbk" class="pbk11" value="PBK"> PBK </option>
+                <option id="srh" class="srh11" value="SRH"> SRH </option>
+                <option id="rr" class="rr11" value="RR"> RR </option>
+                <option id="rcb" class="rcb11" value="RCB"> RCB </option>
+                <option id="kkr" class="kkr11" value="KKR"> KKR </option>
+                <option id="dd" class="dd11" value="DD"> DD </option>
+                <option id="lsg" class="lsg11" value="LSG"> LSG </option>
+                <option id="gt" class="gt11" value="GT"> GT </option>
+            </select>
+
+            <select id="team-detail2" onchange="team2()">
+                <option> select team 2 </option>
+                <option id="mi2" class="mi11" value="MI"> MI </option>
+                <option id="csk2" class="csk11" value="CSK"> CSK </option>
+                <option id="pbk2" class="pbk11" value="PBK"> PBK </option>
+                <option id="srh2" class="srh11" value="SRH"> SRH </option>
+                <option id="rr2" class="rr11" value="RR"> RR </option>
+                <option id="rcb2" class="rcb11" value="RCB"> RCB </option>
+                <option id="kkr2" class="kkr11" value="KKR"> KKR </option>
+                <option id="dd2" class="dd11" value="DD"> DD </option>
+                <option id="lsg2" class="lsg11" value="LSG"> LSG </option>
+                <option id="gt2" class="gt11" value="GT"> GT </option>
+            </select>
+        </p>
+        <p id="cradit1" class="cradit1" style="text-align: center; margin-left: 5%; display: none;"> CRADIT : 100 </p>
+        <p id="sel" class="plr" style="text-align: center; margin-left: 70%; display: none;"> Player Remaining : </p>
+        <h4 id="cmt" style="text-align: center; margin-left: 40%; display: none;">Make your team now</h4>
+
+        <ul id="w1">
+            <h3> select 1-4 Wicket keepers </h3>
+            <li> <input type="button" class="player WK" name="Wicket" value="team1 WKT" id="wik0" onclick="check1(1)">
+            </li>
+            <li> <input type="button" class="player WK" name="Wicket" value="team1 WKT" id="wik1" onclick="check2(1)">
+            </li>
+            <li> <input type="button" class="player WK" name="Wicket" value="team2 WKT" id="wik2" onclick="check3(1)">
+            </li>
+            <li> <input type="button" class="player WK" name="Wicket" value="team2 WKT" id="wik3" onclick="check4(1)">
+            </li>
+            <li> <input type="button" class="player WK" name="Wicket" value="team2 WKT" id="wik4" onclick="check5(1)">
+            </li>
+            <li> <input type="button" class="player WK" name="Wicket" value="team2 WKT" id="wik5" onclick="check6(1)">
+            </li>
+
+        </ul>
+
+        <ul id="b1">
+            <h3> select 3-6 Batters </h3>
+            <li> <input type="button" class="player BAT" name="Batters" value="team1 BAT" id="bat0" onclick="check7(1)">
+            </li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team1 BAT" id="bat1" onclick="check8(1)">
+            </li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team1 BAT" id="bat2" onclick="check9(1)">
+            </li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team1 BAT" id="bat3"
+                    onclick="check10(1)"> </li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team1 BAT" id="bat4"
+                    onclick="check11(1)"></li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat5"
+                    onclick="check12(1)"> </li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat6"
+                    onclick="check13(1)"></li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat7"
+                    onclick="check14(1)"></li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat8"
+                    onclick="check15(1)"> </li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat9"
+                    onclick="check16(1)"></li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat10"
+                    onclick="check17(1)"></li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat11"
+                    onclick="check18(1)"></li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat12"
+                    onclick="check19(1)"> </li>
+            <li> <input type="button" class="player BAT" name="Batters" value="team2 BAT" id="bat13"
+                    onclick="check20(1)"></li>
+
+        </ul>
+        <ul id="a1">
+            <h3> select 1-4 All rounders </h3>
+            </td>
+            <li> <input type="button" class="player ALL" name="All" value="team1 ALL" id="all0" onclick="check21(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team1 ALL" id="all1" onclick="check22(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all2" onclick="check23(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all3" onclick="check24(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all4" onclick="check25(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team1 ALL" id="all5" onclick="check26(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team1 ALL" id="all6" onclick="check27(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all7" onclick="check28(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all8" onclick="check29(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all9" onclick="check30(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all10" onclick="check31(1)">
+            </li>
+            <li> <input type="button" class="player ALL" name="All" value="team2 ALL" id="all11" onclick="check32(1)">
+            </li>
+        </ul>
+        <ul id=bo1>
+            <h3> select 3-6 Bowlers </h3>
+            </td>
+
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW " id="bow0"
+                    onclick="check33(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW" id="bow1"
+                    onclick="check34(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW" id="bow2"
+                    onclick="check35(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team2 BOW " id="bow3"
+                    onclick="check36(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team2 BOW" id="bow4"
+                    onclick="check37(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team2 BOW" id="bow5"
+                    onclick="check38(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW " id="bow6"
+                    onclick="check39(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW" id="bow7"
+                    onclick="check40(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW" id="bow8"
+                    onclick="check41(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team2 BOW " id="bow9"
+                    onclick="check42(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team2 BOW" id="bow10"
+                    onclick="check43(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team2 BOW" id="bow11"
+                    onclick="check44(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW " id="bow12"
+                    onclick="check45(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW" id="bow13"
+                    onclick="check46(1)"></li>
+            <li> <input type="button" class="player BOW" name="Bowlers" value="team1 BOW" id="bow14"
+                    onclick="check47(1)"></li>
+
+        </ul>
+    </div>
+
+    <script>
+        var count1 = 0;
+        var count2 = 0;
+        var count3 = 0;
+        var count4 = 0;
+        var count5 = 0;
+        var count6 = 0;
+        var count7 = 0;
+        var count8 = 0;
+        var count9 = 0;
+        var count10 = 0;
+        var count11 = 0;
+        var count12 = 0;
+        var count13 = 0;
+        var count14 = 0;
+        var count15 = 0;
+        var count16 = 0;
+        var count17 = 0;
+        var count18 = 0;
+        var count19 = 0;
+        var count20 = 0;
+        var count21 = 0;
+        var count22 = 0;
+        var count23 = 0;
+        var count24 = 0;
+        var count25 = 0;
+        var count26 = 0;
+        var count27 = 0;
+        var count28 = 0;
+        var count29 = 0;
+        var count30 = 0;
+        var count31 = 0;
+        var count32 = 0;
+        var count33 = 0;
+        var count34 = 0;
+        var count35 = 0;
+        var count36 = 0;
+        var count37 = 0;
+        var count38 = 0;
+        var count39 = 0;
+        var count40 = 0;
+        var count41 = 0;
+        var count42 = 0;
+        var count43 = 0;
+        var count44 = 0;
+        var count45 = 0;
+        var count46 = 0;
+        var count47 = 0;
+        var Wk123 = 0;
+        var Bat123 = 0;
+        var All123 = 0;
+        var Bow123 = 0;
+        var y = 0;
+        let cradit = 100.5;
+        let plr = 12;
+        function check1(x) {
+            var x;
+
+            if (x == 1) {
+
+                count1 = count1 + 1;
+            }
+            if (count1 == 1) {
+                cradit = cradit - WICKETCRADIT[0];
+                Wk123 = Wk123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count1 = count1 - 1;
+                    cradit = cradit + WICKETCRADIT[0];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("wik0").style.background = "green";
+                    y = y + WICKETCRADIT[0];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count1 == 2) {
+                document.getElementById("wik0").style.background = "red";
+                y = y - WICKETCRADIT[0];
+                count1 = 0;
+                console.log(y);
+                cradit = cradit + WICKETCRADIT[0];
+                Wk123 = Wk123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check2(x) {
+            var x;
+
+            if (x == 1) {
+
+                count2 = count2 + 1;
+            }
+            if (count2 == 1) {
+                cradit = cradit - WICKETCRADIT[1];
+                Wk123 = Wk123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count2 = count2 - 1;
+                    cradit = cradit + WICKETCRADIT[1];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("wik1").style.background = "green";
+                    y = y + WICKETCRADIT[1];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count2 == 2) {
+                document.getElementById("wik1").style.background = "red";
+                y = y - WICKETCRADIT[1];
+                count2 = 0;
+                console.log(y);
+                cradit = cradit + WICKETCRADIT[1];
+                Wk123 = Wk123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check3(x) {
+            var x;
+
+            if (x == 1) {
+
+                count3 = count3 + 1;
+            }
+            if (count3 == 1) {
+                cradit = cradit - WICKETCRADIT[2];
+                Wk123 = Wk123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count3 = count3 - 1;
+                    cradit = cradit + WICKETCRADIT[2];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("wik2").style.background = "green";
+                    y = y + WICKETCRADIT[2];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count3 == 2) {
+                document.getElementById("wik2").style.background = "red";
+                y = y - WICKETCRADIT[2];
+                count3 = 0;
+                console.log(y);
+                cradit = cradit + WICKETCRADIT[2];
+                Wk123 = Wk123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check4(x) {
+            var x;
+
+            if (x == 1) {
+
+                count4 = count4 + 1;
+            }
+            if (count4 == 1) {
+                cradit = cradit - WICKETCRADIT[3];
+                Wk123 = Wk123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count4 = count4 - 1;
+                    cradit = cradit + WICKETCRADIT[3];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("wik3").style.background = "green";
+                    y = y + WICKETCRADIT[3];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count4 == 2) {
+                document.getElementById("wik3").style.background = "red";
+                y = y - WICKETCRADIT[3];
+                count4 = 0;
+                console.log(y);
+                cradit = cradit + WICKETCRADIT[3];
+                Wk123 = Wk123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check5(x) {
+            var x;
+
+            if (x == 1) {
+
+                count5 = count5 + 1;
+            }
+            if (count5 == 1) {
+                cradit = cradit - WICKETCRADIT[4];
+                Wk123 = Wk123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count5 = count5 - 1;
+                    cradit = cradit + WICKETCRADIT[4];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("wik4").style.background = "green";
+                    y = y + WICKETCRADIT[4];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count5 == 2) {
+                document.getElementById("wik4").style.background = "red";
+                y = y - WICKETCRADIT[4];
+                count5 = 0;
+                console.log(y);
+                cradit = cradit + WICKETCRADIT[4];
+                Wk123 = Wk123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check6(x) {
+            var x;
+
+            if (x == 1) {
+
+                count6 = count6 + 1;
+            }
+            if (count6 == 1) {
+                cradit = cradit - WICKETCRADIT[5];
+                Wk123 = Wk123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count6 = count6 - 1;
+                    cradit = cradit + WICKETCRADIT[5];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("wik5").style.background = "green";
+                    y = y + WICKETCRADIT[5];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count6 == 2) {
+                document.getElementById("wik5").style.background = "red";
+                y = y - WICKETCRADIT[5];
+                count6 = 0;
+                console.log(y);
+                cradit = cradit + WICKETCRADIT[5];
+                Wk123 = Wk123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check7(x) {
+            var x;
+
+            if (x == 1) {
+
+                count7 = count7 + 1;
+            }
+            if (count7 == 1) {
+                cradit = cradit - BATTERSCRADIT[0];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count7 = count7 - 1;
+                    cradit = cradit + BATTERSCRADIT[0];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat0").style.background = "green";
+                    y = y + BATTERSCRADIT[0]
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count7 == 2) {
+                document.getElementById("bat0").style.background = "red";
+                y = y - BATTERSCRADIT[0];
+                count7 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[0];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check8(x) {
+            var x;
+
+            if (x == 1) {
+
+                count8 = count8 + 1;
+            }
+            if (count8 == 1) {
+                cradit = cradit - BATTERSCRADIT[1];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count8 = count8 - 1;
+                    cradit = cradit + BATTERSCRADIT[1];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat1").style.background = "green";
+                    y = y + BATTERSCRADIT[1]
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count8 == 2) {
+                document.getElementById("bat1").style.background = "red";
+                y = y - BATTERSCRADIT[1];
+                count8 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[1];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check9(x) {
+            var x;
+
+            if (x == 1) {
+
+                count9 = count9 + 1;
+            }
+            if (count9 == 1) {
+                cradit = cradit - BATTERSCRADIT[2];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count9 = count9 - 1;
+                    cradit = cradit + BATTERSCRADIT[2];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat2").style.background = "green";
+                    y = y + BATTERSCRADIT[2]
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count9 == 2) {
+                document.getElementById("bat2").style.background = "red";
+                y = y - BATTERSCRADIT[2];
+                count9 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[2];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check10(x) {
+            var x;
+
+            if (x == 1) {
+
+                count10 = count10 + 1;
+            }
+            if (count10 == 1) {
+                cradit = cradit - BATTERSCRADIT[3];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count10 = count10 - 1;
+                    cradit = cradit + BATTERSCRADIT[3];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat3").style.background = "green";
+                    y = y + BATTERSCRADIT[3]
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count10 == 2) {
+                document.getElementById("bat3").style.background = "red";
+                y = y - BATTERSCRADIT[3];
+                count10 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[3];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check11(x) {
+            var x;
+
+            if (x == 1) {
+
+                count11 = count11 + 1;
+            }
+            if (count11 == 1) {
+                cradit = cradit - BATTERSCRADIT[4];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count11 = count11 - 1;
+                    cradit = cradit + BATTERSCRADIT[4];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat4").style.background = "green";
+                    y = y + BATTERSCRADIT[4]
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count11 == 2) {
+                document.getElementById("bat4").style.background = "red";
+                y = y - BATTERSCRADIT[4];
+                count11 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[4];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check12(x) {
+            var x;
+
+            if (x == 1) {
+
+                count12 = count12 + 1;
+            }
+            if (count12 == 1) {
+                cradit = cradit - BATTERSCRADIT[5];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count12 = count12 - 1;
+                    cradit = cradit + BATTERSCRADIT[5];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat5").style.background = "green";
+                    y = y + BATTERSCRADIT[5];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count12 == 2) {
+                document.getElementById("bat5").style.background = "red";
+                y = y - BATTERSCRADIT[5];
+                count12 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[5];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check13(x) {
+            var x;
+
+            if (x == 1) {
+
+                count13 = count13 + 1;
+            }
+            if (count13 == 1) {
+                cradit = cradit - BATTERSCRADIT[6];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count13 = count13 - 1;
+                    cradit = cradit + BATTERSCRADIT[6];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat6").style.background = "green";
+                    y = y + BATTERSCRADIT[6];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count13 == 2) {
+                document.getElementById("bat6").style.background = "red";
+                y = y - BATTERSCRADIT[6];
+                count13 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[6];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check14(x) {
+            var x;
+
+            if (x == 1) {
+
+                count14 = count14 + 1;
+            }
+            if (count14 == 1) {
+                cradit = cradit - BATTERSCRADIT[7];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count14 = count14 - 1;
+                    cradit = cradit + BATTERSCRADIT[7];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat7").style.background = "green";
+                    y = y + BATTERSCRADIT[7];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count14 == 2) {
+                document.getElementById("bat8").style.background = "red";
+                y = y - BATTERSCRADIT[7];
+                count14 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[7];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check15(x) {
+            var x;
+
+            if (x == 1) {
+
+                count15 = count15 + 1;
+            }
+            if (count15 == 1) {
+                cradit = cradit - BATTERSCRADIT[8];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count15 = count15 - 1;
+                    cradit = cradit + BATTERSCRADIT[8];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat8").style.background = "green";
+                    y = y + BATTERSCRADIT[8];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count15 == 2) {
+                document.getElementById("bat7").style.background = "red";
+                y = y - BATTERSCRADIT[8];
+                count15 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[8];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check16(x) {
+            var x;
+
+            if (x == 1) {
+
+                count16 = count16 + 1;
+            }
+            if (count16 == 1) {
+                cradit = cradit - BATTERSCRADIT[9];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count16 = count16 - 1;
+                    cradit = cradit + BATTERSCRADIT[9];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat9").style.background = "green";
+                    y = y + BATTERSCRADIT[9];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count16 == 2) {
+                document.getElementById("bat9").style.background = "red";
+                y = y - BATTERSCRADIT[9];
+                count16 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[9];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check17(x) {
+            var x;
+
+            if (x == 1) {
+
+                count17 = count17 + 1;
+            }
+            if (count17 == 1) {
+                cradit = cradit - BATTERSCRADIT[10];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count17 = count17 - 1;
+                    cradit = cradit + BATTERSCRADIT[10];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat10").style.background = "green";
+                    y = y + BATTERSCRADIT[10];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count17 == 2) {
+                document.getElementById("bat10").style.background = "red";
+                y = y - BATTERSCRADIT[10];
+                count17 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[10];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check18(x) {
+            var x;
+
+            if (x == 1) {
+
+                count18 = count18 + 1;
+            }
+            if (count18 == 1) {
+                cradit = cradit - BATTERSCRADIT[11];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count18 = count18 - 1;
+                    cradit = cradit + BATTERSCRADIT[11];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat11").style.background = "green";
+                    y = y + BATTERSCRADIT[11];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count18 == 2) {
+                document.getElementById("bat11").style.background = "red";
+                y = y - BATTERSCRADIT[11];
+                count18 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[11];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check19(x) {
+            var x;
+
+            if (x == 1) {
+
+                count19 = count19 + 1;
+            }
+            if (count19 == 1) {
+                cradit = cradit - BATTERSCRADIT[12];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count19 = count19 - 1;
+                    cradit = cradit + BATTERSCRADIT[12];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat12").style.background = "green";
+                    y = y + BATTERSCRADIT[12];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count19 == 2) {
+                document.getElementById("bat12").style.background = "red";
+                y = y - BATTERSCRADIT[12];
+                count19 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[12];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check20(x) {
+            var x;
+
+            if (x == 1) {
+
+                count20 = count20 + 1;
+            }
+            if (count20 == 1) {
+                cradit = cradit - BATTERSCRADIT[13];
+                Bat123 = Bat123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count20 = count20 - 1;
+                    cradit = cradit + BATTERSCRADIT[13];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bat13").style.background = "green";
+                    y = y + BATTERSCRADIT[13];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count20 == 2) {
+                document.getElementById("bat13").style.background = "red";
+                y = y - BATTERSCRADIT[13];
+                count20 = 0;
+                console.log(y);
+                cradit = cradit + BATTERSCRADIT[13];
+                Bat123 = Bat123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check21(x) {
+            var x;
+
+            if (x == 1) {
+
+                count21 = count21 + 1;
+            }
+            if (count21 == 1) {
+                cradit = cradit - ALLCRADIT[0];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count21 = count21 - 1;
+                    cradit = cradit + ALLCRADIT[0];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all0").style.background = "green";
+                    y = y + ALLCRADIT[0];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count21 == 2) {
+                document.getElementById("all0").style.background = "red";
+                y = y - ALLCRADIT[0];
+                count21 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[0];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check22(x) {
+            var x;
+
+            if (x == 1) {
+
+                count22 = count22 + 1;
+            }
+            if (count22 == 1) {
+                cradit = cradit - ALLCRADIT[1];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count22 = count22 - 1;
+                    cradit = cradit + ALLCRADIT[1];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all1").style.background = "green";
+                    y = y + ALLCRADIT[1];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count22 == 2) {
+                document.getElementById("all1").style.background = "red";
+                y = y - ALLCRADIT[1];
+                count22 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[1];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check23(x) {
+            var x;
+
+            if (x == 1) {
+
+                count23 = count23 + 1;
+            }
+            if (count23 == 1) {
+                cradit = cradit - ALLCRADIT[2];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count23 = count23 - 1;
+                    cradit = cradit + ALLCRADIT[2];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all2").style.background = "green";
+                    y = y + ALLCRADIT[2];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count23 == 2) {
+                document.getElementById("all2").style.background = "red";
+                y = y - ALLCRADIT[2];
+                count23 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[2];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check24(x) {
+            var x;
+
+            if (x == 1) {
+
+                count24 = count24 + 1;
+            }
+            if (count24 == 1) {
+                cradit = cradit - ALLCRADIT[3];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count24 = count24 - 1;
+                    cradit = cradit + ALLCRADIT[3];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all3").style.background = "green";
+                    y = y + ALLCRADIT[3];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count24 == 2) {
+                document.getElementById("all3").style.background = "red";
+                y = y - ALLCRADIT[3];
+                count24 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[3];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check25(x) {
+            var x;
+
+            if (x == 1) {
+
+                count25 = count25 + 1;
+            }
+            if (count25 == 1) {
+                cradit = cradit - ALLCRADIT[4];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count25 = count25 - 1;
+                    cradit = cradit + ALLCRADIT[4];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all4").style.background = "green";
+                    y = y + ALLCRADIT[4];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count25 == 2) {
+                document.getElementById("all4").style.background = "red";
+                y = y - ALLCRADIT[4];
+                count25 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[4];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check26(x) {
+            var x;
+
+            if (x == 1) {
+
+                count26 = count26 + 1;
+            }
+            if (count26 == 1) {
+                cradit = cradit - ALLCRADIT[5];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count26 = count26 - 1;
+                    cradit = cradit + ALLCRADIT[5];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all5").style.background = "green";
+                    y = y + ALLCRADIT[5];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count26 == 2) {
+                document.getElementById("all5").style.background = "red";
+                y = y - ALLCRADIT[5];
+                count26 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[5];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check27(x) {
+            var x;
+
+            if (x == 1) {
+
+                count27 = count27 + 1;
+            }
+            if (count27 == 1) {
+                cradit = cradit - ALLCRADIT[6];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count27 = count27 - 1;
+                    cradit = cradit + ALLCRADIT[6];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all6").style.background = "green";
+                    y = y + ALLCRADIT[6];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count27 == 2) {
+                document.getElementById("all6").style.background = "red";
+                y = y - ALLCRADIT[6];
+                count27 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[6];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check28(x) {
+            var x;
+
+            if (x == 1) {
+
+                count28 = count28 + 1;
+            }
+            if (count28 == 1) {
+                cradit = cradit - ALLCRADIT[7];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count28 = count28 - 1;
+                    cradit = cradit + ALLCRADIT[7];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all7").style.background = "green";
+                    y = y + ALLCRADIT[7];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count28 == 2) {
+                document.getElementById("all7").style.background = "red";
+                y = y - ALLCRADIT[7];
+                count28 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[7];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check29(x) {
+            var x;
+
+            if (x == 1) {
+
+                count29 = count29 + 1;
+            }
+            if (count29 == 1) {
+                cradit = cradit - ALLCRADIT[8];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count29 = count29 - 1;
+                    cradit = cradit + ALLCRADIT[8];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all8").style.background = "green";
+                    y = y + ALLCRADIT[8];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count29 == 2) {
+                document.getElementById("all8").style.background = "red";
+                y = y - ALLCRADIT[8];
+                count29 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[8];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check30(x) {
+            var x;
+
+            if (x == 1) {
+
+                count30 = count30 + 1;
+            }
+            if (count30 == 1) {
+                cradit = cradit - ALLCRADIT[9];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count30 = count30 - 1;
+                    cradit = cradit + ALLCRADIT[9];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all9").style.background = "green";
+                    y = y + ALLCRADIT[9];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count30 == 2) {
+                document.getElementById("all9").style.background = "red";
+                y = y - ALLCRADIT[9];
+                count30 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[9];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check31(x) {
+            var x;
+
+            if (x == 1) {
+
+                count31 = count31 + 1;
+            }
+            if (count31 == 1) {
+                cradit = cradit - ALLCRADIT[10];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count31 = count31 - 1;
+                    cradit = cradit + ALLCRADIT[10];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all10").style.background = "green";
+                    y = y + ALLCRADIT[10];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count31 == 2) {
+                document.getElementById("all10").style.background = "red";
+                y = y - ALLCRADIT[10];
+                count31 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[10];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check32(x) {
+            var x;
+
+            if (x == 1) {
+
+                count32 = count32 + 1;
+            }
+            if (count32 == 1) {
+                cradit = cradit - ALLCRADIT[11];
+                All123 = All123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count32 = count32 - 1;
+                    cradit = cradit + ALLCRADIT[11];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("all11").style.background = "green";
+                    y = y + ALLCRADIT[11];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count32 == 2) {
+                document.getElementById("all11").style.background = "red";
+                y = y - ALLCRADIT[11];
+                count32 = 0;
+                console.log(y);
+                cradit = cradit + ALLCRADIT[11];
+                All123 = All123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check33(x) {
+            var x;
+
+            if (x == 1) {
+
+                count33 = count33 + 1;
+            }
+            if (count33 == 1) {
+                cradit = cradit - BOWLERCRADIT[0];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count33 = count33 - 1;
+                    cradit = cradit + BOWLERCRADIT[0];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow0").style.background = "green";
+                    y = y + BOWLERCRADIT[0];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count33 == 2) {
+                document.getElementById("bow0").style.background = "red";
+                y = y - BOWLERCRADIT[0];
+                count33 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[0];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check34(x) {
+            var x;
+
+            if (x == 1) {
+
+                count34 = count34 + 1;
+            }
+            if (count34 == 1) {
+                cradit = cradit - BOWLERCRADIT[1];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count34 = count34 - 1;
+                    cradit = cradit + BOWLERCRADIT[1];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow1").style.background = "green";
+                    y = y + BOWLERCRADIT[1];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count34 == 2) {
+                document.getElementById("bow1").style.background = "red";
+                y = y - BOWLERCRADIT[1];
+                count34 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[1];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check35(x) {
+            var x;
+
+            if (x == 1) {
+
+                count35 = count35 + 1;
+            }
+            if (count35 == 1) {
+                cradit = cradit - BOWLERCRADIT[2];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count35 = count35 - 1;
+                    cradit = cradit + BOWLERCRADIT[2];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow2").style.background = "green";
+                    y = y + BOWLERCRADIT[2];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count35 == 2) {
+                document.getElementById("bow2").style.background = "red";
+                y = y - BOWLERCRADIT[2];
+                count35 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[2];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        
+        function check36(x) {
+            var x;
+
+            if (x == 1) {
+
+                count36 = count36 + 1;
+            }
+            if (count36 == 1) {
+                cradit = cradit - BOWLERCRADIT[3];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count36 = count36 - 1;
+                    cradit = cradit + BOWLERCRADIT[3];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow3").style.background = "green";
+                    y = y + BOWLERCRADIT[3];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count36 == 2) {
+                document.getElementById("bow3").style.background = "red";
+                y = y - BOWLERCRADIT[3];
+                count36 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[3];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check37(x) {
+            var x;
+
+            if (x == 1) {
+
+                count37 = count37 + 1;
+            }
+            if (count37 == 1) {
+                cradit = cradit - BOWLERCRADIT[4];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count37 = count37 - 1;
+                    cradit = cradit + BOWLERCRADIT[4];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow4").style.background = "green";
+                    y = y + BOWLERCRADIT[4];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count37 == 2) {
+                document.getElementById("bow4").style.background = "red";
+                y = y - BOWLERCRADIT[4];
+                count37 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[4];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check38(x) {
+            var x;
+
+            if (x == 1) {
+
+                count38 = count38 + 1;
+            }
+            if (count38 == 1) {
+                cradit = cradit - BOWLERCRADIT[5];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count38 = count38 - 1;
+                    cradit = cradit + BOWLERCRADIT[5];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow5").style.background = "green";
+                    y = y + BOWLERCRADIT[5];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count38 == 2) {
+                document.getElementById("bow5").style.background = "red";
+                y = y - BOWLERCRADIT[5];
+                count38 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[5];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check39(x) {
+            var x;
+
+            if (x == 1) {
+
+                count39 = count39 + 1;
+            }
+            if (count39 == 1) {
+                cradit = cradit - BOWLERCRADIT[6];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count39 = count39 - 1;
+                    cradit = cradit + BOWLERCRADIT[6];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow6").style.background = "green";
+                    y = y + BOWLERCRADIT[6];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count39 == 2) {
+                document.getElementById("bow6").style.background = "red";
+                y = y - BOWLERCRADIT[6];
+                count39 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[6];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check40(x) {
+            var x;
+
+            if (x == 1) {
+
+                count40 = count40 + 1;
+            }
+            if (count40 == 1) {
+                cradit = cradit - BOWLERCRADIT[7];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count40 = count40 - 1;
+                    cradit = cradit + BOWLERCRADIT[7];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow7").style.background = "green";
+                    y = y + BOWLERCRADIT[7];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count40 == 2) {
+                document.getElementById("bow7").style.background = "red";
+                y = y - BOWLERCRADIT[7];
+                count40 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[7];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check41(x) {
+            var x;
+
+            if (x == 1) {
+
+                count41 = count41 + 1;
+            }
+            if (count41 == 1) {
+                cradit = cradit - BOWLERCRADIT[8];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count41 = count41 - 1;
+                    cradit = cradit + BOWLERCRADIT[8];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow8").style.background = "green";
+                    y = y + BOWLERCRADIT[8];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count41 == 2) {
+                document.getElementById("bow8").style.background = "red";
+                y = y - BOWLERCRADIT[8];
+                count41 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[8];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check42(x) {
+            var x;
+
+            if (x == 1) {
+
+                count42 = count42 + 1;
+            }
+            if (count42 == 1) {
+                cradit = cradit - BOWLERCRADIT[9];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count42 = count42 - 1;
+                    cradit = cradit + BOWLERCRADIT[9];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow9").style.background = "green";
+                    y = y + BOWLERCRADIT[9];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count42 == 2) {
+                document.getElementById("bow9").style.background = "red";
+                y = y - BOWLERCRADIT[9];
+                count42 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[9];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check43(x) {
+            var x;
+
+            if (x == 1) {
+
+                count43 = count43 + 1;
+            }
+            if (count43 == 1) {
+                cradit = cradit - BOWLERCRADIT[10];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count43 = count43 - 1;
+                    cradit = cradit + BOWLERCRADIT[10];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow10").style.background = "green";
+                    y = y + BOWLERCRADIT[10];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count43 == 2) {
+                document.getElementById("bow10").style.background = "red";
+                y = y - BOWLERCRADIT[10];
+                count43 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[10];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check44(x) {
+            var x;
+
+            if (x == 1) {
+
+                count44 = count44 + 1;
+            }
+            if (count44 == 1) {
+                cradit = cradit - BOWLERCRADIT[11];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count44 = count44 - 1;
+                    cradit = cradit + BOWLERCRADIT[11];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow11").style.background = "green";
+                    y = y + BOWLERCRADIT[11];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count44 == 2) {
+                document.getElementById("bow11").style.background = "red";
+                y = y - BOWLERCRADIT[11];
+                count44 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[11];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check45(x) {
+            var x;
+
+            if (x == 1) {
+
+                count45 = count45 + 1;
+            }
+            if (count45 == 1) {
+                cradit = cradit - BOWLERCRADIT[12];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count45 = count45 - 1;
+                    cradit = cradit + BOWLERCRADIT[12];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow12").style.background = "green";
+                    y = y + BOWLERCRADIT[12];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count45 == 2) {
+                document.getElementById("bow12").style.background = "red";
+                y = y - BOWLERCRADIT[12];
+                count45 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[12];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check46(x) {
+            var x;
+
+            if (x == 1) {
+
+                count46 = count46 + 1;
+            }
+            if (count46 == 1) {
+                cradit = cradit - BOWLERCRADIT[13];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count46 = count46 - 1;
+                    cradit = cradit + BOWLERCRADIT[13];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow13").style.background = "green";
+                    y = y + BOWLERCRADIT[13];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count46 == 2) {
+                document.getElementById("bow13").style.background = "red";
+                y = y - BOWLERCRADIT[13];
+                count46 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[13];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        function check47(x) {
+            var x;
+
+            if (x == 1) {
+
+                count47 = count47 + 1;
+            }
+            if (count47 == 1) {
+                cradit = cradit - BOWLERCRADIT[14];
+                Bow123 = Bow123 + 1;
+                plr = plr - 1;
+                if (cradit <= 0 || plr <= 0) {
+                    count47 = count47 - 1;
+                    cradit = cradit + BOWLERCRADIT[14];
+
+                    plr = plr + 1;
+                    console.log(y);
+                    console.log(plr);
+                    return;
+                }
+
+                if (cradit >= 0) {
+                    document.getElementById("bow14").style.background = "green";
+                    y = y + BOWLERCRADIT[14];
+                    console.log(y);
+                    cradit = cradit - 0.5;
+                    plr = plr - 1;
+                    document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                    document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                    cradit = cradit + 0.5;
+                    plr = plr + 1;
+                    console.log(Wk123);
+                    console.log(Bat123);
+                    console.log(All123);
+                    console.log(Bow123);
+                    if (plr == 1) {
+
+                        if (Wk123 >= 1 && Bat123 >= 3 && All123 >= 1 && Bow123 >= 3) {
+                            document.getElementById("cmt").innerText = "Your team is ready";
+                            document.getElementById("cmt").style.background = "white";
+
+                        }
+                        else {
+                            document.getElementById("cmt").innerText = "Your team is not proper";
+                            document.getElementById("cmt").style.background = "black";
+                        }
+                    }
+                }
+
+
+            }
+            else if (count47 == 2) {
+                document.getElementById("bow14").style.background = "red";
+                y = y - BOWLERCRADIT[14];
+                count47 = 0;
+                console.log(y);
+                cradit = cradit + BOWLERCRADIT[14];
+                Bow123 = Bow123 - 1;
+                plr = plr + 1;
+                cradit = cradit - 0.5;
+                plr = plr - 1;
+                document.getElementById("cradit1").innerText = "CRADIT - " + cradit;
+                document.getElementById("sel").innerText = "Player Remaining : " + plr;
+                cradit = cradit + 0.5;
+                plr = plr + 1;
+                document.getElementById("cmt").innerText = "Make your team now";
+                document.getElementById("cmt").style.background = "yellow";
+            }
+        }
+        // function team1()
+        // {
+        //     // var x = document.getElementById("Quinton").value;
+        //     // x = "virat kohli";
+        //     // console.log(x);
+        //     // var z = document.getElementById("team-detail").value;
+        //     // console.log(z);
+
+        //      var MIPLAYER = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+        //      var classname = document.querySelectorAll(".MI");
+        //      console.log(classname[2].value);
+        //     //  classname.style.display = "none";
+        //      for(i = 0; i<classname.length; i++)
+        //      {
+        //          classname[i].value = MIPLAYER[i];
+        //      console.log(classname[i].value);
+        //      classname[i].style.display = "none";
+        //      }
+
+
+        // }
+        // function team2()
+        // {
+        //     var classname2 = document.querySelectorAll(".MI");
+        //     for(i = 0; i<classname2.length; i++)
+        //      {
+        //      classname2[i].style.display = "block";
+        //      }
+
+        // }
+
+
+        // define mi players
+        let MIWK = ["Ishan Kishan - 9.5", "Mohd. Arshad Khan - 8"];
+        let MIBAT = ["Rohit Sharma - 10.5", "Dewald Brevis - 8", "Tilak Varma - 8", "Sanjay Yadav - 9"];
+        let MIALL = ["Kieron Pollard - 8.5", "Daniel Sams - 9.5", "Tim David - 8.5"];
+        let MIBOW = ["Jasprit Bumrah - 9.5", "Murugan Ashwin - 8.5", "Basil Thampi - 8", "Jofra Archer - 9.5", "Tymal Mills - 8.5", "Riley Meredith - 8"];
+
+        // define csk players
+        let CSKWK = ["MS Dhoni - 8.5", "Devon Conway - 8"];
+        let CSKBAT = ["Ambati Rayudu - 9", "Ruturaj Gaikwad - 9", "Robin Uthappa - 8", "Simarjeet Singh - 8"];
+        let CSKALL = ["Ravindra Jadeja - 9.5", "Moeen Ali - 10", "Dwayne Bravo - 8.5", "Shivam Dube - 8", "Dwaine Pretorius - 9.5"];
+        let CSKBOW = ["Deepak Chahar - 10", "Tushar Deshpande - 8", "KM Asif - 8", "Rajvardhan Hangargekar - 8", "Mitchell Santner - 9"];
+
+
+        // define pbk players
+        let PBKWK = ["Jonny Bairstow - 8.5", "Ishan Porel - 8"];
+        let PBKBAT = ["Mayank Agarwal - 9", "Shahrukh Khan - 8", "Prabhsimran Singh - 8", "Jitesh Sharma - 8.5"];
+        let PBKALL = ["Liam Livingstone - 9", "Raj Angad Bawa - 8.5"];
+        let PBKBOW = ["Kagiso Rabada - 9", "Odean Smith - 8.5", "Rahul Chahar - 8.5", "Arshdeep Singh - 8.5", "Harpreet Brar - 8.5", "Sandeep Sharma - 8"];
+        // define srh players
+        let SRHWK = ["Nicholas Pooran - 9", "Jagadeesha Suchith - 8"];
+        let SRHBAT = ["Kane Williamson - 9.5", "Rahul Tripathi - 8.5", "Abdul Samad - 8", "Aiden Markram - 8.5", "Priyam Garg - 8.5"];
+        let SRHALL = ["Washington Sundar - 8.5", "Abhishek Sharma - 8", "Marco Jansen - 8.5", "Shreyas Gopal - 8.5"];
+        let SRHBOW = ["Bhuvneshwar Kumar - 8.5", "T Natarajan - 8.5", "Kartik Tyagi - 8", "Umran Malik - 8.5"];
+        // define RR players
+        let RRWK = ["Sanju Samson - 9", "Jos Buttler -9"];
+        let RRBAT = ["Shimron Hetmyer - 8.5", "Devdutt Padikkal - 9", "Yashasvi Jaiswal - 8.5", "Riyan Parag - 8", "Dhruv Jurel - 8.5"];
+        let RRALL = ["KC Cariappa - 8", "Obed Mccoy - 8.5", "Kuldeep Sen - 8", "Karun Nair - 8.5"];
+        let RRBOW = ["Prasidh Krishna - 9", "Trent Boult - 9", "Yuzvendra Chahal - 8.5", "Ravichandran Ashwin - 8.5", "Navdeep Saini - 8"];
+        // define RCB players
+        let RCBWK = ["Dinesh Karthik - 8.5", "Suyash Prabhudessai - 8"];
+        let RCBBAT = ["Virat Kohli - 9.5", "Faf du Plessis - 9", "Anuj Rawat - 8.5", "Mahipal Lomror - 8.5", "Sherfane Rutherford - 8.5"];
+        let RCBALL = ["Glenn Maxwell - 9", "Wanindu Hasaranga - 8.5", "Shahbaz Ahmed - 8", "Finn Allen - 8.5"];
+        let RCBBOW = ["Harshal Patel - 8.5", "Josh Hazlewood - 8.5", "Mohammed Siraj - 8.5", "Akash Deep - 8", "Jason Behrendorff - 8.5"];
+        //define kkr players
+        let KKRWK = ["Sheldon Jackson - 8", "Abhijeet Tomar - 8"];
+        let KKRBAT = ["Shreyas Iyer - 9", "Nitish Rana - 9", "Ajinkya Rahane - 8.5", "Anukul Roy - 8", "Baba Indrajith - 8"];
+        let KKRALL = ["Andre Russell - 9", "Venkatesh Iyer - 9", "Sunil Narine - 8.5", "Chamika Karunaratne - 8"];
+        let KKRBOW = ["Varun Chakaravarthy - 8.5", "Shivam Mavi - 8", "Pat Cummins - 9", "Rasikh Dar - 8", "Pratham Singh - 8"];
+        //define dd players
+        let DDWK = ["Rishabh Pant - 9", "Srikar Bharat - 8"];
+        let DDBAT = ["Prithvi Shaw - 8.5", "David Warner - 9", "Mandeep Singh - 8.5", "Ashwin Hebbar - 8", "Sarfaraz Khan - 8"];
+        let DDALL = ["Shardul Thakur - 9", "Axar Patel - 8.6", "Mitchell Marsh - 8.5"];
+        let DDBOW = ["Anrich Nortje - 8.5", "Khaleel Ahmed - 8", "Chetan Sakariya - 8.5", "Kuldeep Yadav 8.5", "Mustafizur Rahman - 9", "Kamlesh Nagarkoti - 8.5"];
+        //define lsg players
+        let LSGWK = ["KL Rahul - 10", "Quinton de Kock - 9.5"];
+        let LSGBAT = ["Manish Pandey - 9", "Ankit Rajpoot - 8", "Mohsin Khan - 8.5", "Ayush Badoni - 8", "Kyle Mayers 8.5"];
+        let LSGALL = ["Marcus Stoinis - 9", "Jason Holder - 9.5", "Krunal Pandya - 8.5", "Deepak Hooda - 8.5", "Krishnappa Gowtham - 8.5"];
+        let LSGBOW = ["Avesh Khan - 9", "Mark Wood - 9", "Ravi Bishnoi - 8.5", "Dushmantha Chameera - 8.5"];
+        // define GT players
+        let GTWK = ["Noor Ahmad - 8.5", "Yash Dayal - 8.5"];
+        let GTBAT = ["Shubman Gill - 9", "Ravisrinivasan Kishore - 8.5", "Abhinav Manohar - 8.5", "Jason Roy - 9"];
+        let GTALL = ["Hardik Pandya - 9", "Rahul Tewatia - 8.5", "Jayant Yadav - 8.5", "Vijay Shankar - 8.5", "Alzarri Joseph - 9"];
+        let GTBOW = ["Rashid Khan - 9.5", "Lockie Ferguson - 9", "Mohammed Shami - 9", "Dominic Drakes - 8.5"];
+
+
+        // selection team1 and team2 variables
+        var Team1;
+        var Team2;
+
+        // counting kipper and batsman variables
+        var WICKETCOUNT = 0;
+        var BATCOUNT = 0;
+        var ALLCOUNT = 0;
+        var BOWCOUNT = 0;
+
+        // this variable restore data if we select another team
+        var removefromlist = 0;
+        var MYTEAM1;
+        var number;
+
+        // store value to variable
+        let WICKETCRADIT = [];
+        wk = 0;
+        let BATTERSCRADIT = [];
+        bt = 0;
+        let ALLCRADIT = [];
+        al = 0;
+        let BOWLERCRADIT = [];
+        bo = 0;
+
+
+        // first team selection and remove team from second team list
+        function team1() {
+
+            var firstTeam = document.getElementById("team-detail1").value;
+            Team1 = firstTeam;
+            var display2 = document.getElementById("team-detail2");
+            display2.style.display = "block";
+
+            // if second time team select from team list 1 then it will restore 1st team and remove second team  from 2nd team list
+            if (removefromlist == 1) {
+                removefromlist = 0;
+                if (number == 1) {
+                    var MYTEAM1 = document.getElementById("mi2");
+                    MYTEAM1.style.display = "block";
+
+                }
+                if (number == 2) {
+                    var MYTEAM1 = document.getElementById("csk2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 3) {
+                    var MYTEAM1 = document.getElementById("pbk2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 4) {
+                    var MYTEAM1 = document.getElementById("srh2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 5) {
+                    var MYTEAM1 = document.getElementById("rr2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 6) {
+                    var MYTEAM1 = document.getElementById("rcb2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 7) {
+                    var MYTEAM1 = document.getElementById("kkr2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 8) {
+                    var MYTEAM1 = document.getElementById("dd2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 9) {
+                    var MYTEAM1 = document.getElementById("lsg2");
+                    MYTEAM1.style.display = "block";
+                }
+                if (number == 10) {
+                    var MYTEAM1 = document.getElementById("gt2");
+                    MYTEAM1.style.display = "block";
+                }
+            }
+            // select team 1 and it will automatically remove from 2nd team list
+            removefromlist = removefromlist + 1;
+            if (Team1 == "MI") {
+                var MYTEAM1 = document.getElementById("mi2");
+                MYTEAM1.style.display = "none";
+                number = 1;
+
+            }
+            if (Team1 == "CSK") {
+                var MYTEAM1 = document.getElementById("csk2");
+                MYTEAM1.style.display = "none";
+                number = 2;
+            }
+            if (Team1 == "PBK") {
+                var MYTEAM1 = document.getElementById("pbk2");
+                MYTEAM1.style.display = "none";
+                number = 3;
+            }
+            if (Team1 == "SRH") {
+                var MYTEAM1 = document.getElementById("srh2");
+                MYTEAM1.style.display = "none";
+                number = 4;
+            }
+            if (Team1 == "RR") {
+                var MYTEAM1 = document.getElementById("rr2");
+                MYTEAM1.style.display = "none";
+                number = 5;
+            }
+            if (Team1 == "RCB") {
+                var MYTEAM1 = document.getElementById("rcb2");
+                MYTEAM1.style.display = "none";
+                number = 6;
+            }
+            if (Team1 == "KKR") {
+                var MYTEAM1 = document.getElementById("kkr2");
+                MYTEAM1.style.display = "none";
+                number = 7;
+            }
+            if (Team1 == "DD") {
+                var MYTEAM1 = document.getElementById("dd2");
+                MYTEAM1.style.display = "none";
+                number = 8;
+            }
+            if (Team1 == "LSG") {
+                var MYTEAM1 = document.getElementById("lsg2");
+                MYTEAM1.style.display = "none";
+                number = 9;
+            }
+            if (Team1 == "GT") {
+                var MYTEAM1 = document.getElementById("gt2");
+                MYTEAM1.style.display = "none";
+                number = 10;
+            }
+
+            // for (let i = 0; i < 1; i++) {
+            //     if (selectedTeam[0] == "MI") {
+            //         var MITEAM1 = document.getElementById("mi2");
+            //         MITEAM1.style.display = "none";
+            //     }
+            //     if (selectedTeam[0] == "CSK") {
+            //         var CSKTEAM1 = document.getElementById("csk2");
+            //         CSKTEAM1.style.display = "none";
+            //     }
+            // }
+        }
+        // we add button and remove extra button
+        function team2() {
+            addPlayer();
+            removePlayer();
+        }
+        // add selected player
+        function addPlayer() {
+            document.getElementById("cradit1").style.display = "block";
+            document.getElementById("sel").style.display = "block";
+            document.getElementById("cmt").style.display = "block";
+            var secondTeam = document.getElementById("team-detail2").value;
+            Team2 = secondTeam;
+            selectedTeam = [Team1, Team2]
+
+            // compare selected player with list and add players
+            for (let i = 0; i < selectedTeam.length; i++) {
+                if (selectedTeam[i] == "MI") {
+                    miSection();
+                }
+                if (selectedTeam[i] == "CSK") {
+                    cskSection();
+                }
+                if (selectedTeam[i] == "PBK") {
+                    pbkSection();
+                }
+                if (selectedTeam[i] == "SRH") {
+                    srhSection();
+                }
+                if (selectedTeam[i] == "RR") {
+                    rrSection();
+                }
+                if (selectedTeam[i] == "RCB") {
+                    rcbSection();
+                }
+                if (selectedTeam[i] == "KKR") {
+                    kkrSection();
+                }
+                if (selectedTeam[i] == "DD") {
+                    ddSection();
+                }
+                if (selectedTeam[i] == "LSG") {
+                    lsgSection();
+                }
+                if (selectedTeam[i] == "GT") {
+                    gtSection();
+                }
+
+            }
+        }
+        // add mi players to the list
+        function miSection() {
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+
+            // add wicket keeper and its cradit to variable
+            for (p = 0; p < MIWK.length; p++) {
+                wkt[WICKETCOUNT].value = MIWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+
+            for (p = 0; p < MIBAT.length; p++) {
+                bat[BATCOUNT].value = MIBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < MIALL.length; p++) {
+                all[ALLCOUNT].value = MIALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < MIBOW.length; p++) {
+                bow[BOWCOUNT].value = MIBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+            console.log(WICKETCRADIT);
+            console.log(BATTERSCRADIT);
+            console.log(ALLCRADIT);
+            console.log(BOWLERCRADIT);
+
+
+        }
+        function cskSection() {
+
+            console.log(WICKETCOUNT);
+
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+            for (p = 0; p < CSKWK.length; p++) {
+                wkt[WICKETCOUNT].value = CSKWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+            for (p = 0; p < CSKBAT.length; p++) {
+                bat[BATCOUNT].value = CSKBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < CSKALL.length; p++) {
+                all[ALLCOUNT].value = CSKALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < CSKBOW.length; p++) {
+                bow[BOWCOUNT].value = CSKBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+        }
+        function pbkSection() {
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+
+            for (p = 0; p < PBKWK.length; p++) {
+                wkt[WICKETCOUNT].value = PBKWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+
+            for (p = 0; p < PBKBAT.length; p++) {
+                bat[BATCOUNT].value = PBKBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < PBKALL.length; p++) {
+                all[ALLCOUNT].value = PBKALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < PBKBOW.length; p++) {
+                bow[BOWCOUNT].value = PBKBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+
+        }
+        function srhSection() {
+
+            console.log(WICKETCOUNT);
+
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+            for (p = 0; p < SRHWK.length; p++) {
+                wkt[WICKETCOUNT].value = SRHWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+            for (p = 0; p < SRHBAT.length; p++) {
+                bat[BATCOUNT].value = SRHBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < SRHALL.length; p++) {
+                all[ALLCOUNT].value = SRHALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < SRHBOW.length; p++) {
+                bow[BOWCOUNT].value = SRHBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+        }
+        function rrSection() {
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+
+            for (p = 0; p < RRWK.length; p++) {
+                wkt[WICKETCOUNT].value = RRWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+
+            for (p = 0; p < RRBAT.length; p++) {
+                bat[BATCOUNT].value = RRBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < RRALL.length; p++) {
+                all[ALLCOUNT].value = RRALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < RRBOW.length; p++) {
+                bow[BOWCOUNT].value = RRBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+
+        }
+        function rcbSection() {
+
+            console.log(WICKETCOUNT);
+
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+            for (p = 0; p < RCBWK.length; p++) {
+                wkt[WICKETCOUNT].value = RCBWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+            for (p = 0; p < RCBBAT.length; p++) {
+                bat[BATCOUNT].value = RCBBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < RCBALL.length; p++) {
+                all[ALLCOUNT].value = RCBALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < RCBBOW.length; p++) {
+                bow[BOWCOUNT].value = RCBBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+        }
+        function kkrSection() {
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+
+            for (p = 0; p < KKRWK.length; p++) {
+                wkt[WICKETCOUNT].value = KKRWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+
+            for (p = 0; p < KKRBAT.length; p++) {
+                bat[BATCOUNT].value = KKRBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < KKRALL.length; p++) {
+                all[ALLCOUNT].value = KKRALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < KKRBOW.length; p++) {
+                bow[BOWCOUNT].value = KKRBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+
+        }
+        function ddSection() {
+
+            console.log(WICKETCOUNT);
+
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+            for (p = 0; p < DDWK.length; p++) {
+                wkt[WICKETCOUNT].value = DDWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+            for (p = 0; p < DDBAT.length; p++) {
+                bat[BATCOUNT].value = DDBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < DDALL.length; p++) {
+                all[ALLCOUNT].value = DDALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < DDBOW.length; p++) {
+                bow[BOWCOUNT].value = DDBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+        }
+        function lsgSection() {
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+
+            for (p = 0; p < LSGWK.length; p++) {
+                wkt[WICKETCOUNT].value = LSGWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+
+            for (p = 0; p < LSGBAT.length; p++) {
+                bat[BATCOUNT].value = LSGBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < LSGALL.length; p++) {
+                all[ALLCOUNT].value = LSGALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < LSGBOW.length; p++) {
+                bow[BOWCOUNT].value = LSGBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+
+        }
+        function gtSection() {
+
+            console.log(WICKETCOUNT);
+
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+            for (p = 0; p < GTWK.length; p++) {
+                wkt[WICKETCOUNT].value = GTWK[p];
+
+                // function to split and fatch only number from string
+                var x = wkt[WICKETCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                WICKETCRADIT[wk] = z[0];
+                wk = wk + 1;
+
+                WICKETCOUNT = WICKETCOUNT + 1;
+            }
+            for (p = 0; p < GTBAT.length; p++) {
+                bat[BATCOUNT].value = GTBAT[p];
+
+                var x = bat[BATCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BATTERSCRADIT[bt] = z[0];
+                bt = bt + 1;
+
+                BATCOUNT = BATCOUNT + 1;
+            }
+            for (p = 0; p < GTALL.length; p++) {
+                all[ALLCOUNT].value = GTALL[p];
+
+                var x = all[ALLCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                ALLCRADIT[al] = z[0];
+                al = al + 1;
+
+                ALLCOUNT = ALLCOUNT + 1;
+            }
+            for (p = 0; p < GTBOW.length; p++) {
+                bow[BOWCOUNT].value = GTBOW[p];
+
+                var x = bow[BOWCOUNT].value.split(" ");
+                var y = x.filter(function (elem) {
+                    return !isNaN(elem);
+                });
+                var z = y.map(function (val) {
+                    return parseFloat(val);
+                });
+                BOWLERCRADIT[bo] = z[0];
+                bo = bo + 1;
+
+                BOWCOUNT = BOWCOUNT + 1;
+            }
+        }
+
+
+        // add required button and remove extra button
+        function removePlayer() {
+            wkt = document.querySelectorAll(".WK");
+            bat = document.querySelectorAll(".BAT");
+            all = document.querySelectorAll(".ALL");
+            bow = document.querySelectorAll(".BOW");
+            console.log(WICKETCOUNT);
+            for (i = 0; i < WICKETCOUNT; i++) {
+                wkt[i].style.display = "block"
+            }
+            for (i = 0; i < BATCOUNT; i++) {
+                bat[i].style.display = "block"
+            }
+            for (i = 0; i < ALLCOUNT; i++) {
+                all[i].style.display = "block"
+            }
+            for (i = 0; i < BOWCOUNT; i++) {
+                bow[i].style.display = "block"
+            }
+            for (p = WICKETCOUNT; p < wkt.length; p++) {
+                wkt[p].style.display = "none"
+            }
+            for (p = BATCOUNT; p < bat.length; p++) {
+                bat[p].style.display = "none"
+            }
+            for (p = ALLCOUNT; p < all.length; p++) {
+                all[p].style.display = "none"
+            }
+            for (p = BOWCOUNT; p < bow.length; p++) {
+                bow[p].style.display = "none"
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

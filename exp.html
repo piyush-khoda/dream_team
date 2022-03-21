@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> Manu Bar </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .manu-area a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: fff;
+            background: transparent;
+            height: 50px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight :bold;
+            text-decoration: none;
+            text-transform: uppercase;
+
+        }
+        .manu-area a:hover {
+            background: tomato;
+            color: #fff;
+        }
+        .manu-area ul {
+            list-style: none;
+            display: flex;
+        }
+        .manu-area ul li{
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        .manu-area li:hover .dropDown-1 > li{
+            top: 0;
+            display: block;
+        }
+        .dropDown-1 ul li{
+            display: none;
+            position: relative;
+        }
+        .dropDown-1{
+            position:absolute;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .dropDown-1 ul li:hover .dropDown-2 ul li{
+            display: block;
+        }
+        .dropDown-2 ul li{
+            display: none;
+        }
+        .dropDown-2{
+            display: flex;
+            flex-direction: column;
+            position:absolute;
+            top: 0;
+            left: 100%;
+            width: 200px;
+        }
+        
+    </style>
+</head>
+   
+<!-- <body>
+
+<div class="manu-bar">
+    <ul>
+        <li class="active"><a href="#"><i class="fa fa-home"></i> HOME </a></li>
+
+        <li><a href="#"> <i class="fa fa-user"></i>ABOUT US</a>  
+        <div class="submanu1">
+            <ul>
+                <li><a href = "#" > Mission </a></li>
+                <li><a href = "#" > Vision </a></li>
+                <li><a href = "#" > Team </a></li>
+            </ul>
+        
+
+        
+    </li>
+        <li><a href="#"> <i class="fa fa-clone"></i>SERVICES </a>
+            <div class="submanu1">
+                <ul>
+                    <li><a href = "#" > Mission </a></li>
+                    <li><a href = "#" > Vision </a></li>
+                    <li><a href = "#" > Team </a></li>
+                </ul>
+            
+    
+            </div>
+        
+        </li>
+        <li><a href="#"> <i class="fa fa-angellist"></i> TEAMS</a> 
+            <div class="submanu1">
+                <ul>
+                    <li><a href = "inside ipl extra.html" > RECENT MATCH </a></li>
+                    
+                </ul>
+            
+    
+            </div>
+        </li>
+        <li><a href="#"> <i class="fa fa-inr"></i> POINT TABLES </a> 
+        
+            <div class="submanu1">
+                <ul>
+                    <li><a href = "ipl.html" > IPL POINT TABLE </a></li>
+                    <li><a href = "bbl point.html" > BBL POINT TABLE </a></li>
+                    
+                </ul>
+            
+    
+            </div>
+        </li>
+        <li><a href="#"> <i class="fa fa-edit"></i> NEWS </a>
+        
+            <div class="submanu1">
+                <ul>
+                    <li><a href = "icc renking.html" > ICC RENKING </a></li>
+                </ul>
+            
+    
+            </div>
+        </li>
+    </ul>
+</div>
+
+    
+
+<div align = "right">
+		
+    <a href="registration form.html" style="color: burlywood; font-size: large;">Registration</a>
+    &nbsp; &nbsp; 
+    <a href="login form.html" style="color: burlywood; font-size: large; padding-right: 20px;">Login </a>
+</div>
+
+
+
+
+
+
+
+<div class="slider" align ="center" >
+    <figure>
+        <div class="slide">
+            <img src = "di1.jpg" >
+            
+        </div>
+        <div class="slide">
+            <img src = "di2.jpeg">
+        </div>
+        <div class="slide">
+            <img src = "di3.jpg">
+        </div>
+        <div class="slide">
+            <img src = "di4.jpg">
+        </div>
+        <div class="slide">
+            <img src = "di1.jpg">
+        </div>
+    </figure>
+</div>
+
+
+</body> -->
+<body>
+    <div class="manu-area">
+        <ul >
+            <li><a href ="#">Home</a></li>
+            <li><a href ="#">About</a></li>
+            <li><a href ="#">Servises</a>
+            <ul class = "dropDown-1">
+                <li><a href ="#">Logo Design</a></li>
+                <li><a href ="#">Web Design</a></li>
+                <li><a href ="#">Web Developer</a>
+                <ul class = "dropDown-2">
+                    <li><a href ="#">php</a></li>
+                    <li><a href ="#">java</a></li>
+                </ul></li>
+            </ul></li>
+            <li><a href ="#">portfolio</a></li>
+            <li><a href ="#">contact</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Inside ipl </title>
+  <style>
+    th {
+      color: rgb(11, 35, 247);
+    }
+
+    body {
+      background-color: rgba(162, 158, 172, 0.822);
+    }
+  </style>
+
+
+  </script>
+</head>
+
+<body>
+  
+  <h1 align="center">IPL inside</h1>
+
+  <select name="MI" id=""> 
+    <option value="MI"> MI </option>
+    <option value="MI"> Rohit sharma </option>
+    <option value="MI"> Kieron Pollard </option>
+    <option value="MI"> surykumar yadav </option>
+    <option value="MI"> saurabh tivari </option>
+    <option value="MI"> Quinton de Kock </option>
+    <option value="MI"> Ishan Kishan </option>
+    <option value="MI"> Krunal Pandya </option>
+    <option value="MI"> hardik pandya </option>
+    <option value="MI"> Chris Lynn </option>
+    <option value="MI"> jayant yadav </option>
+  </select>
+
+  <select name="CSK" id="">
+    <option value="MI"> CSK </option>
+    <option value="MI"> Mahendrsingh dhoni </option>
+    <option value="MI"> Ravindr jadeja </option>
+    <option value="MI"> Moin ali </option>
+    <option value="MI"> Dipak chahar </option>
+    <option value="MI"> Sardul thakur </option>
+    <option value="MI"> Faf duplesi </option>
+    <option value="MI"> Suresh raina </option>
+    <option value="MI"> Ruturaaj gaayakvad </option>
+    <option value="MI"> Ambati raaydu </option>
+    <option value="MI"> Bravo </option>
+  </select>
+
+  <br>
+  <br>
+  <hr>
+  <br>
+  <div align="center">
+    <button id="btn" onclick="myfunction()"> csk vs mi</button>
+    <button id="btn2" onclick="myfunction2()"> hide </button>
+  </div>
+
+  <piy class="abc" id="showdisplay" style="display: none;" align = "center">
+
+    <h1 align="center">MI vs CSK</h1>
+    <h3> Wicket keeper </h3>
+    <input type="checkbox" class="player" value = "Quinton" id="Quinton" onclick = "extra()">Quinton de Kock
+    <input type="checkbox" class="player"  value = "Mahendrsingh" id="Mahendrsingh" onclick = "extra()">Mahendrsingh dhoni  
+    <h3> Batters </h3>
+    <input type="checkbox" class="player" value = "Faf" id="Faf" onclick = "extra()">Faf duplesi
+    <input type="checkbox" class="player" value = "Suresh" id="Suresh"onclick = "extra()">Suresh raina
+    <input type="checkbox" class="player" value = "Ruturaaj" id="Ruturaaj" onclick = "extra()">Ruturaaj gaayakvad 
+    <input type="checkbox" class="player" value = "Ambati" id="Ambati" onclick = "extra()">Ambati raaydu
+    <input type="checkbox" class="player" value = "Kieron" id="Kieron" onclick = "extra()">Kieron Pollard
+    <input type="checkbox" class="player" value = "surykumar" id="surykumar" onclick = "extra()">surykumar yadav
+    <input type="checkbox" class="player" value = "saurabh" id="saurabh" onclick = "extra()">saurabh tivari
+    <input type="checkbox" class="player" value = "Rohit" id="Rohit" onclick = "extra()">Rohit sharma 
+    <input type="checkbox" class="player" value = "Chris" id="Chris" onclick = "extra()">Chris Lynn
+    <input type="checkbox" class="player" value = "Ishan" id="Ishan" onclick = "extra()">Ishan Kishan 
+    <h3> All rounder </h3>
+    <input type="checkbox" class="player" value = "Krunal" id="Krunal" onclick = "extra()">Krunal Pandya
+    <input type="checkbox" class="player " value = "hardik" id="hardik" onclick = "extra()">hardik pandy
+    <input type="checkbox" class="player" value = "Ravindr" id="Ravindr" onclick = "extra()">Ravindr jadeja
+    <input type="checkbox" class="player" value = "Moin" id="Moin" onclick = "extra()">Moin ali
+    <input type="checkbox" class="player" value = "Bravo" id="Bravo" onclick = "extra()">Dwayne Bravo
+    <h3> Bowler </h3>
+    <input type="checkbox" class="player" value = "Dipak" id="Dipak" onclick = "extra()">Dipak chahar
+    <input type="checkbox" class="player" value = "Shardul" id="Shardul" onclick = "extra()">Shardul thakur 
+    <input type="checkbox" class="player" value = "jayant" id="jayant" onclick = "extra()">jayant yadav 
+
+    
+    
+    
+    
+
+    <h3 id = "point" align = "center">Selected player</h3>
+    <p id = "message" align = "center"> </p>
+    <hr>
+    <p id = "message1" align = "center">select only 11 player</p>
+    
+
+
+  </piy>
+  <script>
+
+    function add(x,y)
+    {
+      return x + y;
+    }
+    function sub(x,y)
+    {
+      return x - y;
+    }
+    function myfunction() {
+      document.getElementById("showdisplay").style.display = "inline"
+    }
+    function myfunction2() {
+      document.getElementById("showdisplay").style.display = "none"
+    }
+    function point_sum()
+    {
+      let x = 5;
+      dk = dk+x;
+      return;
+    }
+    function extra()
+    {
+      var checks = document.getElementsByClassName('player');
+      var str = '';
+      var str1 = "your team is ready";
+      var  j = 0;
+      
+      for (i = 0 ; i < 30; i++)
+      {
+           
+        if (checks[i].checked === true)
+        {
+          
+          str += checks[i].value + '.....'; 
+          document.getElementById("message").textContent = str;
+          j = j + 1 ;
+        console.log(j);
+        if(j == 11)
+        {
+          document.getElementById("message").textContent = str1;
+        }
+        if(j >= 12)
+        {
+          document.getElementById("message").textContent = null;
+        }
+        
+        }
+        else{
+
+        }
+        
+      }
+      alert(str);
+    }
+    function mi1()
+    {
+        let dk = 5;
+      if(document.getElementById("Quinton").checked)
+      {
+        document.getElementById("message").textContent = dk;
+      }
+      else {
+        document.getElementById("message").textContent = 0;
+      }
+    }
+    function mi2()
+    {
+      var a = 10
+      var sum = add(sum,a);
+      console.log(sum);
+    }
+    function mi3()
+    {
+      var mi3 = 8.5;
+      var p = 8.5;
+      var sum = sum+p;
+      console.log(mi3);
+      console.log(sum);
+    }
+    function mi4()
+    {
+      var mi4 = 9;
+      console.log(mi4);
+    }
+    function mi5()
+    {
+      var mi5 = 10;
+      console.log(mi5);
+    }
+    function mi6()
+    {
+      var mi6 = 10;
+      console.log(mi6);
+    }
+    function mi7()
+    {
+      var mi7 = 9;
+      console.log(mi7);
+    }
+    function mi8()
+    {
+      var mi8 = 8;
+      console.log(mi8);
+    }
+
+    function mi9()
+    {
+      var mi9 = 9.5;
+      console.log(mi9);
+    }
+    function mi10()
+    {
+      var mi10 = 8.5;
+      console.log(mi10);
+    }
+
+
+  </script>
+</body>
+
+</html>

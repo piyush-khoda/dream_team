@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change button color</title>
+<script src = "script.js"></script>
+  <style>
+      body
+      {
+          width: 100%;
+          height: 100%;
+          background-color: #eee;
+      }
+      .manu
+      {
+          margin: 5% 12%;
+          background: transparent;
+
+      }
+      a, #showall
+      {
+          display: inline-block;
+          margin: 0 1%;
+          padding: 3%;
+          border-radius: 11%;
+          -webkit-box-shadow: 0 3px 12px 3px rgba(0,0,0,0.2);
+          -moz-box-shadow: 0 3px 12px 3px rgba(0,0,0,0.2);
+          box-shadow: 0 3px 12px 3px rgba(0,0,0,0.2);
+      }
+      a:nth-child(1){
+          background-color: tomato;
+      }
+      a:nth-child(2){
+          background-color: rgb(52, 122, 202);
+      }
+      a:nth-child(3){
+          background-color: rgb(126, 26, 129);
+      }
+      a:nth-child(4){
+          background-color: rgb(94, 9, 30);
+      }
+      .target_box{
+          margin: 6% 10%;
+          background: transparent;
+      }
+      .details{display: none;}
+  </style>
+ 
+        
+    
+</head>
+<body>
+  <div class="manu">
+    <a id = "showall"> all </a>
+    <a class="Single"  id = "one">one</a>
+    <a class="Single"  id = "two">two</a>
+    <a class="Single"  id = "three">three</a>
+
+</div>
+<section class = "target_box">
+    <p id = "div1" class = "target">hello one</p>
+    <p id = "div2" class = "target">hello two</p>
+    <p id = "div3" class = "target">hello three</p>
+</section>
+<h1 align="center">IPL inside</h1>
+
+  <select name="MI" id="player-detail"> 
+    <option> select name </option>
+    <option  id = "Rohit" value = "Rohit"> Rohit sharma </option>
+    <option  id = "Kieron" value = "Kieron"> Kieron Pollard </option>
+    <option  id = "surykumar" value = "surykumar"> surykumar yadav </option>
+    
+  </select>
+
+  <div id="details-container">
+      <div class = "Rohit details">
+          <p>rohit</p>
+      </div>
+      <div class = "Kieron details">
+        <p>Kieron</p>
+    </div>
+    <div class = "surykumar details">
+        <p>surykumar</p>
+    </div>
+  </div>
+
+
+
+<script type = "text/javascript">
+//    jQuery(function(){
+//    jQuery('#showall').click(function(){
+//console.log("hi");
+ //   jQuery('.target').show();
+ //   });
+ //   jQuery('.Single').click(function(){
+//        jQuery('.target').hide();
+//        jQuery('#div'+$(this).attr('target')).show();
+//    });
+//});
+$(document).ready(function(){
+    $('#one').on('click',function(){
+        $('#div1').toggle();
+    });
+    $('#two').on('click',function(){
+        $('#div2').toggle();
+    });
+    $('#three').on('click',function(){
+        $('#div3').toggle();
+    });
+    $("#player-detail").change(function(){
+        var name =$("#player-detail").val();
+        $(".details").hide();
+        $("."+name).show();
+      
+    });
+
+});
+
+
+</script>
+</body>
+</html>

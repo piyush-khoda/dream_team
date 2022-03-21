@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search things</title>
+    <style>
+        .containor{
+            width: 60%;
+            margin: 100px auto;
+            background: #333;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .containor input{
+            background: transparent;
+            border: 0;
+            font-size: 30px;
+            color: #fff;
+        }
+        .player{
+            border-top: 2px solid #999;
+        }
+        .player > div{
+            padding: 15px;
+            font-size: 20px;
+            color: #fff;
+            border-top: 1px solid #666;
+            cursor: pointer;
+        }
+        .player > div:hover{
+            background-color: #1e4dd4;
+        }
+    </style>
+    <script>
+        const player = [{name: 'india'},{name: 'america'},{name: 'japan'}];
+
+        const searchInput = document.getElementById('search-input');
+        console.log(searchInput);
+        searchInput.addEventListener('keydown', function()
+        {
+            console.log(searchInput.Value);
+        })
+        // searchInput.addEventListener('keyup',function(){
+        // })
+    </script>
+        
+</head>
+<body>
+    <div class="containor">
+        <input class= "search-input" type="text" placeholder="search player">
+        <div class="player">
+        <div>india</div>
+        <div>america</div>
+        <div>japan</div>
+        </div>
+    </div>
+</body>
+</html>

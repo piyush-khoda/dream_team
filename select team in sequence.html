@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Section</title>
+    <style>
+        body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background: linear-gradient(120deg,#859152, #475b79, #7a4673);
+        height: 100vh;
+        overflow: hidden;
+        }
+        .selection ul
+{
+    display:inline-table;
+    list-style: none;
+    margin: 40px;
+    color :rgb(251, 255, 8);
+    text-align:right;
+}
+        .selection ul li
+        {
+        width :150px;
+        padding: 5px;
+        }
+        input[type = "button"]  {
+            width: 150%;
+            
+            height: 30px;
+            border: 2px solid;
+            background: red;
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+     <h1 align = "center" style="color: rgb(15, 13, 15);">"CSK vs MI" </h1>
+    <div class="selection">
+        
+
+
+        
+    <ul id = "w1"><h3> select 1-4 Wicket keepers </h3>
+        <li><input type="button" id = "mi" value="MI"></li>
+        <li> <input type="button" id = "csk" value="CSK"></li>
+          <li> <input type="button" class="player" name = "Wicket" value = "Quinton de Kock" id="Quinton" onclick =  "check1(1)" > </li> 
+          <li> <input type="button" class="player" name = "Wicket" value = "Mahendrsingh dhoni " id="Mahendrsingh" onclick = "check2(1)"></li>  
+    
+        </ul > 
+
+           <ul id = "b1"> <h3> select 3-6 Batters </h3>
+                <li> <input type="button" class="player" name = "Batters" value = "Faf duplesi" id="Faf" onclick = "check3(1)"></li>
+                <li>   <input type="button" class="player" name = "Batters" value = "Suresh raina" id="Suresh"onclick = "check4(1)"></li>
+                <li>  <input type="button" class="player" name = "Batters" value = "Ruturaaj gaayakvad" id="Ruturaaj" onclick = "check5(1)"> </li> 
+                <li>   <input type="button" class="player" name = "Batters" value = "Ambati raaydu" id="Ambati" onclick = "check6(1)"></li> 
+                <li>   <input type="button" class="player" name = "Batters" value = "Kieron Pollard" id="Kieron" onclick = "check7(1)"></li> 
+                <li>   <input type="button" class="player" name = "Batters" value = "surykumar yadav" id="surykumar" onclick = "check8(1)"></li> 
+                <li>    <input type="button" class="player"name = "Batters" value = "saurabh tivari" id="saurabh" onclick = "check9(1)"></li> 
+                <li>    <input type="button" class="player" name = "Batters" value = "Rohit sharma" id="Rohit" onclick = "check10(1)"> </li> 
+                <li>    <input type="button" class="player" name = "Batters" value = "Chris Lynn" id="Chris" onclick = "check11(1)"></li> 
+                <li>    <input type="button" class="player" name = "Batters" value = "Ishan Kishan" id="Ishan" onclick = "check12(1)"> </li> 
+            </ul >
+            <ul id = "a1">
+              <h3> select 1-4 All rounders </h3></td>
+              <li>   <input type="button" class="player" name = "All" value = "Krunal Pandya" id="Krunal" onclick = "check13(1)"> </li> 
+              <li>    <input type="button" class="player " name = "All" value = "hardik pandy" id="hardik" onclick = "check14(1)"></li> 
+              <li>    <input type="button" class="player" name = "All" value = "Ravindr jadeja" id="Ravindr" onclick = "check15(1)"></li> 
+              <li>    <input type="button" class="player" name = "All" value = "Moin ali" id="Moin" onclick = "check16(1)"></li> 
+              <li>    <input type="button" class="player" name = "All" value = "Dwayne Bravo" id="Bravo" onclick = "check17(1)"></li> 
+            </ul>
+             <ul id = bo1>
+             <h3> select 3-6 Bowlers </h3></td>
+             <li>    <input type="button" class="player" name = "Bowlers" value = "Dipak chahar" id="Dipak" onclick = "check18(1)"></li> 
+             <li>    <input type="button" class="player" name = "Bowlers" value = "Shardul thakur" id="Shardul" onclick = "check19(1)"></li> 
+             <li>    <input type="button" class="player" name = "Bowlers" value = "jayant yadav " id="jayant" onclick = "check20(1)"></li> 
+            </ul>
+        </div> 
+        <div class="manu">
+            <a id = "showall"> all </a>
+            <a class="single" target = "1">one</a>
+            <a class="double" target = "1">two</a>
+            <a class="three" target = "1">three</a>
+
+        </div>
+        <section class = "transbox">
+            <div class="div1" class = "target">hello one</div>
+            <div class="div2" class = "target">hello two</div>
+            <div class="div3" class = "target">hello three</div>
+        </section>
+        <script src = "script.js">
+            let btnmi = document.querySelector('#mi');
+            let btncsk = document.querySelector('#csk');
+            function myfunction() {
+            document.getElementById("showdisplay").style.display = "inline"
+            }
+            function myfunction2() {
+            document.getElementById("showdisplay").style.display = "none"
+            }
+        </script>
+</body>
+</html>

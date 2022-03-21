@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>check box</title>
+    <script type = "text/javascript">
+         function selectAll(){
+        let cityCheck=document.getElementsByName("cityCheck");
+        let cityCheckLen=cityCheck.length;
+        for(var x=0;x<cityCheckLen;x++){
+            cityCheck[x].checked=true;
+        }
+    }
+    function deselectAll(){
+        let cityCheck=document.getElementsByName("cityCheck");
+        let cityCheckLen=cityCheck.length;
+        for(var x=0;x<cityCheckLen;x++){
+            cityCheck[x].checked=false;
+        }
+    }
+        function is_checked(){
+            var sports = document.getElementById('sports').checked;
+            var electronics = document.getElementById('electronics').checked;
+            var foods = document.getElementById('foods').checked;
+            if (sports == false && electronics == false && foods == false)
+            {
+                alert('please check check box');
+                return false;
+            }
+            else {
+                return true;
+            }
+            
+        }
+        
+        </script>
+        <input type="button" onclick="selectAll()" value="Select All">
+        <input type="button" onclick="deselectAll()" value="Deselect All">
+        
+        <br/><br/>
+        <input type="checkbox" name="cityCheck" value="Noida">Noida<br/>
+        <input type="checkbox" name="cityCheck" value="Mumbai">Mumbai<br/>
+        <input type="checkbox" name="cityCheck" value="Pune">Pune<br/>
+        <input type="checkbox" name="cityCheck" value="Delhi">Delhi<br/>
+        
+</head>
+
+
+    <form action="submission.html" method = "get" onsubmit="return is_checked()">
+            
+            sports<input type = "checkbox" name="int1" value = "sports "id = "sports"/ ><br>
+            electronics<input type = "checkbox" name="int1" value = "electronics "id = "electronics"/ ><br>
+            foods<input type = "checkbox" name="int1" value = "foods "id = "foods"/ ><br>
+            <input type = "submit"  value = "submit" />
+            
+        </form>
+        
+        <body>       
+
+</body>
+</html>
